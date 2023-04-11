@@ -1,6 +1,6 @@
 <?php
 
-sessin_start();
+session_start();
 
 require_once "../config.php";
 require_once "../model/ContactModel.php";
@@ -9,7 +9,6 @@ require_once "../model/UserModel.php";
 
 try {
     $connectPDO = new PDO(DB_TYPE.':host='.DB_HOST.';port='.DB_PORT.';dbname='.DB_NAME.';charset='.DB_CHARSET,
-    DB_USER,
     DB_PWD
     );
 
