@@ -1,0 +1,97 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   overflow-x: hidden;
+}
+
+.menu {
+    display: flex;
+    justify-content: end;
+}
+
+.icon-menu {
+    background-color: white;
+    border-radius: 10%;
+}
+
+/* CONTACT */
+:root {
+    --brown-background: url(../assets/BgBrown.png);
+}
+
+#topNavBar {
+    width: 100%;
+    position: fixed;
+    background: var(--brown-background);
+}
+
+.title-contact {
+    margin-top: 5%;
+}
+
+/* ! modification css principal ligne 24*/
+.title-contact, .title-categ {
+    margin-bottom: 3%;
+    padding: 3px;
+}
+
+
+.container-contact {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 5%;
+
+}
+
+.contact-submit {
+    overflow-x: visible;
+}
+
+.contact-btn {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--brown-background);
+}
+/* CONTACT */
+
+
+.container-footer {
+    background: var(--brown-background);
+    width: 100%;
+    height: auto;
+    margin-top: 5%;
+
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+    gap: 10%;
+    padding: 2%;
+}
+
+.footer-menu{
+    width: 200px;
+    display: grid;
+    grid-template-rows: repeat(4,auto);
+}
+
+
+.footer-menu a, .footer-categ a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-categ{
+    width: auto;
+    display: grid;
+    grid-template-rows: repeat(3,auto);
+}
+
+.footer-social{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
