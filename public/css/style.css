@@ -1,8 +1,22 @@
+@import url('https://fonts.cdnfonts.com/css/moldyen');
+@import url('https://fonts.cdnfonts.com/css/minion-sc');
+@import url('https://fonts.cdnfonts.com/css/westiga');
+
+/* /FR/NORMES/ED/ */
+
 *, *::before, *::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-   overflow-x: hidden;
+    overflow-x: hidden;
+}
+
+/* /FR/NAVBAR/ED/ */
+
+.nav-zindex {
+    z-index: 100;
+    position: absolute;
+    top: 0%;
 }
 
 .menu {
@@ -14,8 +28,12 @@
     background-color: white;
     border-radius: 10%;
 }
+.logo-site {
+    font-family: 'Westiga', sans-serif;
+}
 
 /* CONTACT */
+
 :root {
     --brown-background: url(../assets/BgBrown.png);
 }
@@ -31,22 +49,22 @@
 }
 
 /* ! modification css principal ligne 24*/
+
 .title-contact, .title-categ {
     margin-bottom: 3%;
     padding: 3px;
 }
 
-
 .container-contact {
     width: 100%;
     display: grid;
     justify-content: center;
-    margin-bottom: 5%;
 
 }
 
 .contact-submit {
     overflow-x: visible;
+    margin-bottom: 20%;
 }
 
 .contact-btn {
@@ -55,8 +73,8 @@
     transform: translate(-50%);
     background: var(--brown-background);
 }
-/* CONTACT */
 
+/* /FR/FOOTER/ED/ */
 
 .container-footer {
     background: var(--brown-background);
@@ -65,19 +83,22 @@
     margin-top: 5%;
 
     display: grid;
-    grid-template-columns: repeat(3,auto);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4,auto);
     justify-content: center;
-    gap: 10%;
+    gap: 0% 10%;
     padding: 2%;
 }
 
 .footer-menu{
-    width: 200px;
+    height: auto;
     display: grid;
-    grid-template-rows: repeat(4,auto);
+    grid-template-rows: repeat(5,auto);
 }
 
+.footer-menu p, .footer-categ p, .footer-social p, .footer-admin p{
+    margin-bottom: 5px;
+    color: white;
+}
 
 .footer-menu a, .footer-categ a {
     color: white;
@@ -87,11 +108,24 @@
 .footer-categ{
     width: auto;
     display: grid;
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: repeat (5,auto);
 }
 
 .footer-social{
+    width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+}
+
+.footer-social img {
+    width: 35px;
+    margin: 5px;
+}
+
+.navnavnav, #link{
+    color: white;
+}
+
+.navnavnav:hover, #link:hover {
+    color: #fac21b;
 }
