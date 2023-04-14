@@ -23,6 +23,8 @@ USE `instrument_project` ;
 CREATE TABLE IF NOT EXISTS `instrument_project`.`artiste` (
   `artisteID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(50) NOT NULL,
+  `wiki_url` VARCHAR(250) NOT NULL,
+  `website_url` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`artisteID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -51,6 +53,7 @@ CREATE TABLE IF NOT EXISTS `instrument_project`.`contact` (
   `prenom` VARCHAR(30) NOT NULL,
   `message` VARCHAR(500) NOT NULL,
   `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `email_contact` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`contactID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -65,8 +68,7 @@ CREATE TABLE IF NOT EXISTS `instrument_project`.`instrument` (
   `titre` VARCHAR(30) NOT NULL,
   `description` TEXT NOT NULL,
   `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-  `id_test` INT(10) UNSIGNED NOT NULL,
-  `category_instrument_categoryID` INT(10) UNSIGNED NOT NULL,
+  `category_instrument_categoryID` INT(10) UNSIGNED NULL,
   PRIMARY KEY (`instrumentID`, `category_instrument_categoryID`),
   INDEX `fk_instrument_category_instrument1_idx` (`category_instrument_categoryID` ASC) VISIBLE,
   CONSTRAINT `fk_instrument_category_instrument1`
@@ -83,20 +85,19 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `instrument_project`.`instrument_has_artiste` (
   `instrument_instrumentID` INT(10) UNSIGNED NOT NULL,
-  `instrument_category_instrument_categoryID` INT(10) UNSIGNED NOT NULL,
   `artiste_artisteID` INT(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`instrument_instrumentID`, `instrument_category_instrument_categoryID`, `artiste_artisteID`),
+  PRIMARY KEY (`instrument_instrumentID`, `artiste_artisteID`),
   INDEX `fk_instrument_has_artiste_artiste1_idx` (`artiste_artisteID` ASC) VISIBLE,
-  INDEX `fk_instrument_has_artiste_instrument1_idx` (`instrument_instrumentID` ASC, `instrument_category_instrument_categoryID` ASC) VISIBLE,
+  INDEX `fk_instrument_has_artiste_instrument1_idx` (`instrument_instrumentID` ASC) VISIBLE,
   CONSTRAINT `fk_instrument_has_artiste_artiste1`
     FOREIGN KEY (`artiste_artisteID`)
     REFERENCES `instrument_project`.`artiste` (`artisteID`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_instrument_has_artiste_instrument1`
-    FOREIGN KEY (`instrument_instrumentID` , `instrument_category_instrument_categoryID`)
-    REFERENCES `instrument_project`.`instrument` (`instrumentID` , `category_instrument_categoryID`)
-    ON DELETE NO ACTION
+    FOREIGN KEY (`instrument_instrumentID`)
+    REFERENCES `instrument_project`.`instrument` (`instrumentID`)
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -130,6 +131,7 @@ CREATE TABLE IF NOT EXISTS `instrument_project`.`user` (
   `username` VARCHAR(30) NOT NULL,
   `mail_user` VARCHAR(250) NOT NULL,
   `user_pwd` VARCHAR(250) NOT NULL,
+  `uniqID` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`userID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
