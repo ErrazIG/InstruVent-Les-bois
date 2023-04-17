@@ -3,6 +3,11 @@
 # echo __FILE__;
 # var_dump($_SESSION);
 
+require_once 'InstrumentModel.php'; 
+require_once 'MailModel.php';
+require_once 'UserModel';
+
+
 if (isset($_GET['disconnect'])) {
     // si déconnexion renvoie true
     if (deconnect()) {
@@ -10,6 +15,9 @@ if (isset($_GET['disconnect'])) {
         header("Location: ./");
         exit();
     }
+
+/* A modifier ou supprimer, adapter 
+
 
 // on veut ajouter un Post   
 }elseif(isset($_GET['createPost'])){
@@ -54,6 +62,6 @@ if (isset($_GET['disconnect'])) {
     // on compte le nombre d'articles
     $postCount = count($postAll);
     // appel de la vue de l'accueil
-    include "../view/privateView/privateHomepageView.php";
+    include "../view/privateView/privateHomepageView.php"; */
 
 }
