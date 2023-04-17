@@ -41,7 +41,7 @@
     <?php
     if (isset($envoi)):
         ?>
-        <?= $envoi ?>
+        <?= $sended ?>
     <?php 
     endif;
     ?> 

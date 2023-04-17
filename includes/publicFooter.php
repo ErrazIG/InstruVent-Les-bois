@@ -1,17 +1,18 @@
-<div class="container-footer">
+    <!-- Footer  -->
+    <div class="container-footer">
       <div class="footer-menu">
         <p> <strong>MENU</strong></p>
-        <a href="?p=Accueil" class="navnavnav">Accueil</a>
-        <a href="?p=Propos" class="navnavnav">A propos</a>
-        <a href="?p=Instruments" class="navnavnav">Instrument</a>
-        <a href="?p=Contact" class="navnavnav">Contact</a>
+        <a href="" class="navnavnav">Accueil</a>
+        <a href="" class="navnavnav">A propos</a>
+        <a href="" class="navnavnav">Instrument</a>
+        <a href="" class="navnavnav">Contact</a>
       </div>
       <div class="footer-categ">
         <p> <strong>CATEGORIE</strong></p>
-        <a href="?p=" class="navnavnav">Biseau</a>
-        <a href="?p=" class="navnavnav">Anche libre</a>
-        <a href="?p=" class="navnavnav">Anche simple</a>
-        <a href="?p=" class="navnavnav">Anche double</a>
+        <a href="" class="navnavnav">Biseau</a>
+        <a href="" class="navnavnav">Anche libre</a>
+        <a href="" class="navnavnav">Anche simple</a>
+        <a href="" class="navnavnav">Anche double</a>
       </div>
       <div class="footer-social">
         <p> <strong>RESEAUX</strong></p>
@@ -25,16 +26,24 @@
         <a href="">
           <img src="assets/1298747_instagram_brand_logo_social media_icon.png" alt="">
         </a>
-        </div>
-        <div class="footer-admin">
-          <p> <strong>ADMIN</strong></p>
-          <br>
-          <a href="">
-            <button type="button" class="btn btn-warning">Admin</button>
-          </a>
-          <br>
-          <br>
-          <p>&copyCF2M</p>
-          <a href="" class=" navnavnav">Mentions légales</a>  
-        </div>
+
+      </div>
+      <div class="footer-admin">
+        <p> <strong>ADMIN</strong></p>
+        <br>
+        <a href="#">
+          <button type="button" class="btn btn-warning btn-admin" data-bs-toggle="modal" data-bs-target=".exampleModal">Admin</button>
+        </a>
+        <br>
+        <br>
+        <p>&copyCF2M</p>
+    <!--
+        <p>@Billy</p>
+        <p>@Fred</p>
+        <p>@Maksym</p>
+        <p>@Youssef</p>
+    -->
+        <a href="" class="text-white navnavnav">Mentions légales</a>
+
+      </div>
     </div>
