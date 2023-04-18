@@ -8,7 +8,7 @@
  */
 
  
-function getOneUseById(PDO $db, int $uid): array|bool {
+function getOneUserById(PDO $db, int $uid): array|bool {
 
     $sql="SELECT userID, username FROM user WHERE userID=?";
     $prepare=$db->prepare($sql);
