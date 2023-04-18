@@ -6,7 +6,8 @@
 require_once 'InstrumentModel.php'; 
 require_once 'MailModel.php';
 require_once 'UserModel';
-
+require_once 'ArtisteModel.php';
+require_once 'MediaModel.php';
 
 if (isset($_GET['disconnect'])) {
     // si déconnexion renvoie true
