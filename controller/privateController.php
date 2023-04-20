@@ -3,11 +3,11 @@
 # echo __FILE__;
 # var_dump($_SESSION);
 
-require_once 'InstrumentModel.php'; 
-require_once 'MailModel.php';
-require_once 'UserModel';
-require_once 'ArtisteModel.php';
-require_once 'MediaModel.php';
+require_once '../model/InstrumentModel.php'; 
+require_once '../model/MailModel.php';
+require_once '../model/UserModel';
+require_once '../model/ArtisteModel.php';
+require_once '../model/MediaModel.php';
 
 if (isset($_GET['disconnect'])) {
     // si déconnexion renvoie true

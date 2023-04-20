@@ -7,7 +7,62 @@
  * @return array|null
  */
 
- 
+ function createUserAndEncryptPassword(PDO $db, string $username, string $email, string $password): bool {
+    // cryptage du mot de passe avec SHA-2 (256 bits)
+    $passwordHash = password_hash($password, PASSWORD_ARGON2ID);
+
+    // insertion  l'utilisateur dans la base de données
+    $sql = "INSERT INTO user (username, mail_user, user_pdw) VALUES (?, ?, ?)";
+    $prepare = $db->prepare($sql);
+
+    try {
+        $prepare->execute([$username, $email, $passwordHash]);
+        return true;
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+
+function checkUserPassword(PDO $db, string $username, string $password): bool {
+    // récupérer le mot de passe haché de l'utilisateur de la base de données
+    $sql = "SELECT user_pwd FROM user WHERE username = ?";
+    $prepare = $db->prepare($sql);
+    
+    try {
+        $prepare->execute([$username]);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+
+    // vérifier si l'utilisateur existe
+    if ($prepare->rowCount() == 1) {
+        $pwd = $prepare->fetch(PDO::FETCH_ASSOC);
+        $hashedPassword = $pwd['user_pwd'];
+
+        // utilisation de password_verify() pour vérifier si le mot de passe correspond au hachage
+        return password_verify($password, $hashedPassword);
+    } else {
+        // les données ne correspondent pas
+        return false;
+    }
+}
+
+function getUserEmailByUsername(PDO $db, string $username): ?string {
+    $sql = "SELECT mail_user FROM user WHERE username = :username";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+
+    if ($result) {
+        return $result['mail_user'];
+    } else {
+        return null;
+    }
+}
+
 function getOneUserById(PDO $db, int $uid): array|bool {
 
     $sql="SELECT userID, username FROM user WHERE userID=?";

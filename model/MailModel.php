@@ -30,3 +30,4 @@ function sendMail(string $mailfrom, string $mailto, string $subject, string $mes
         return $sended;
     }
 }
+
