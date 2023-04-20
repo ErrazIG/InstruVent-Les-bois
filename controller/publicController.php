@@ -1,5 +1,5 @@
 <?php
-echo __FILE__;
+//echo __FILE__;
 
 
 if (isset($_GET['p']) && $_GET['p'] === "Propos"){
