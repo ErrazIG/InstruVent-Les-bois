@@ -1,6 +1,4 @@
 <?php
-echo __FILE__;
-
 
 if (isset($_GET['p']) && $_GET['p'] === "Propos"){
 
@@ -14,8 +12,16 @@ if (isset($_GET['p']) && $_GET['p'] === "Propos"){
 
     require_once "../view/publicView/publicContact.php";
 
+}elseif (isset($_GET['p']) && $_GET['p'] === "Category"){
+
+    require_once "../view/publicView/publicCategory.php";
+
+}elseif (isset($_GET['p']) && $_GET['p'] === "ficheInstrument"){
+
+    require_once "../view/publicView/publicFicheInstrument.php";
+    
 }else {
 
-    require_once"../view/publicView/publicHomepage.php";
+    require_once "../view/publicView/publicHomepage.php";
 
 }
