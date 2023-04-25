@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le : mar. 25 avr. 2023 à 12:04
+-- Généré le : mar. 25 avr. 2023 à 12:19
 -- Version du serveur : 10.6.5-MariaDB
 -- Version de PHP : 8.1.0
 
@@ -31,6 +31,7 @@ DROP TABLE IF EXISTS `artiste`;
 CREATE TABLE IF NOT EXISTS `artiste` (
   `artisteID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
+  `description` text NOT NULL,
   `wiki_url` varchar(250) DEFAULT NULL,
   `website_url` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`artisteID`)
@@ -40,17 +41,17 @@ CREATE TABLE IF NOT EXISTS `artiste` (
 -- Déchargement des données de la table `artiste`
 --
 
-INSERT INTO `artiste` (`artisteID`, `nom`, `wiki_url`, `website_url`) VALUES
-(1, 'Vincent Lauzer', 'https://fr.wikipedia.org/wiki/Vincent_Lauzer', 'http://www.vincentlauzer.com/'),
-(2, 'Georges Barrère', 'https://fr.wikipedia.org/wiki/Georges_Barr%C3%A8re', NULL),
-(3, 'Nathalie Boucheix', 'https://fr.wikipedia.org/wiki/Nathalie_Boucheix', NULL),
-(4, 'James Cotton', 'https://fr.wikipedia.org/wiki/James_Cotton', 'http://jamescottonsuperharp.com/'),
-(5, 'Buddy DeFranco', 'https://fr.wikipedia.org/wiki/Buddy_DeFranco', 'http://www.buddydefranco.com/'),
-(6, 'Josef Horák', 'https://fr.wikipedia.org/wiki/Josef_Hor%C3%A1k', 'http://www.horakbasscl.cz/'),
-(7, 'Sophie Alour', 'https://fr.wikipedia.org/wiki/Sophie_Alour', 'http://www.sophiealour.com/'),
-(8, 'Timothée de Thèbes', 'https://fr.wikipedia.org/wiki/Timoth%C3%A9e_de_Th%C3%A8bes', NULL),
-(9, 'Bruno Giner', 'https://fr.wikipedia.org/wiki/Bruno_Giner', 'https://brunoginer.wixsite.com/brunoginer'),
-(10, 'Yusef Lateef', 'https://fr.wikipedia.org/wiki/Yusef_Lateef', 'https://yuseflateef.com/');
+INSERT INTO `artiste` (`artisteID`, `nom`, `description`, `wiki_url`, `website_url`) VALUES
+(1, 'Vincent Lauzer', '', 'https://fr.wikipedia.org/wiki/Vincent_Lauzer', 'http://www.vincentlauzer.com/'),
+(2, 'Georges Barrère', '', 'https://fr.wikipedia.org/wiki/Georges_Barr%C3%A8re', NULL),
+(3, 'Nathalie Boucheix', '', 'https://fr.wikipedia.org/wiki/Nathalie_Boucheix', NULL),
+(4, 'James Cotton', '', 'https://fr.wikipedia.org/wiki/James_Cotton', 'http://jamescottonsuperharp.com/'),
+(5, 'Buddy DeFranco', '', 'https://fr.wikipedia.org/wiki/Buddy_DeFranco', 'http://www.buddydefranco.com/'),
+(6, 'Josef Horák', '', 'https://fr.wikipedia.org/wiki/Josef_Hor%C3%A1k', 'http://www.horakbasscl.cz/'),
+(7, 'Sophie Alour', '', 'https://fr.wikipedia.org/wiki/Sophie_Alour', 'http://www.sophiealour.com/'),
+(8, 'Timothée de Thèbes', '', 'https://fr.wikipedia.org/wiki/Timoth%C3%A9e_de_Th%C3%A8bes', NULL),
+(9, 'Bruno Giner', '', 'https://fr.wikipedia.org/wiki/Bruno_Giner', 'https://brunoginer.wixsite.com/brunoginer'),
+(10, 'Yusef Lateef', '', 'https://fr.wikipedia.org/wiki/Yusef_Lateef', 'https://yuseflateef.com/');
 
 -- --------------------------------------------------------
 
