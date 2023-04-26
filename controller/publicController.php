@@ -1,4 +1,6 @@
 <?php
+// Chargement du menu pour toutes les pages 
+$menu = getAllCategoryMenu($connectPDO);
 
 if (isset($_GET['p']) && $_GET['p'] === "Propos"){
 
@@ -21,7 +23,9 @@ if (isset($_GET['p']) && $_GET['p'] === "Propos"){
     require_once "../view/publicView/publicFicheInstrument.php";
     
 }else {
+    // Appel des modèles
 
+    // Appel de la vue
     require_once "../view/publicView/publicHomepage.php";
 
 }
