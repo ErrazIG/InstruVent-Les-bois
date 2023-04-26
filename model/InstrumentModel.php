@@ -1,26 +1,4 @@
 <?php 
-// a vérifier selon les besoins 
-function fetchAllJoinedTablesByDate(PDO $db, int $instrumentID): array{
-    $sql = "SELECT i.instrumentID id, i.titre title, i.description description, i.date_instrument date, ci.cat_instrument category, a.nom artist, a.wiki_url wiki, a.website_url website, m.idmedias media_id, m.type_media media_type, m.media_url media_url
-            FROM instrument i 
-            LEFT JOIN category_instrument ci ON i.category_instrument_categoryID = ci.categoryID 
-            LEFT JOIN instrument_has_artiste iha ON i.instrumentID = iha.instrument_instrumentID 
-            LEFT JOIN artiste a ON iha.artiste_artisteID = a.artisteID 
-            LEFT JOIN media m ON i.instrumentID = m.instrumentID
-            ORDER BY i.date_instrument DESC";
-
-
-try{
-    $prepare = $db->prepare($sql);
-    $prepare->execute();
-}catch(Exception $e){
-    die($e->getMessage());
-}
-// création d'une variable qui contient le résultat pour retirer le return de cette ligne (bp -> bonne pratique)
-$bp = $prepare->fetchAll(PDO::FETCH_ASSOC);
-// on renvoie le résultat après la fermeture du jeu de résultat
-return $bp;
-}
 // supprime le dernier ' ' espace si il existe
 function trunCate (string $text): string{
     $cut = strrpos($text, ' ');
@@ -40,3 +18,152 @@ function trunCate (string $text): string{
     /*
 ADMIN FUNCTIONS
 */
+// Insérer un nouvel instrument, gérer les artistes et les médias associés à l'instrument
+function createInstrument(PDO $db, string $titre, string $description, int $categoryID, array $artistIDs, array $mediaURLs) {
+    try {
+        // Insérer l'instrument
+        $sql = "INSERT INTO instrument (titre, description, category_instrument_categoryID) VALUES (?, ?, ?)";
+        $prepare = $db->prepare($sql);
+        $prepare->execute([$titre, $description, $categoryID]);
+
+        // Récupérer l'ID de l'instrument inséré
+        $instrumentID = $db->lastInsertId();
+
+        // Associer les artistes à l'instrument
+        $sql = "INSERT INTO instrument_has_artiste (instrument_instrumentID, artiste_artisteID) VALUES (?, ?)";
+        $prepare = $db->prepare($sql);
+        foreach ($artistIDs as $artistID) {
+            $prepare->execute([$instrumentID, $artistID]);
+        }
+
+        // Associer les médias à l'instrument
+        $sql = "INSERT INTO media (instrumentID, media_url) VALUES (?, ?)";
+        $prepare = $db->prepare($sql);
+        foreach ($mediaURLs as $mediaURL) {
+            $prepare->execute([$instrumentID, $mediaURL]);
+        }
+
+    } catch (PDOException $e) {
+        // Gérer les exceptions PDO
+        echo "Erreur lors de l'insertion de l'instrument : " . $e->getMessage();
+    } catch (Exception $e) {
+        // Gérer les autres exceptions
+        echo "Erreur : " . $e->getMessage();
+    }
+}
+
+/*
+// Mettre à jour un instrument, sa CatégorieID, son Titre, sa Description, 
+function updateInstrument(PDO $db, $instrumentID, $categoryID, $titre, $description) {
+    $sql = "UPDATE instrument SET categoryID = ?, titre = ?, description = ? WHERE instrumentID = ?";
+    $prepare = $db->prepare($sql);
+    try {
+        return $prepare->execute([$categoryID, $titre, $description, $instrumentID]);
+    } catch (Exception $e) {
+        error_log("Erreur lors de la mise à jour de l'instrument : " . $e->getMessage());
+        return false;
+    }
+}
+// Associer un ou des artistes à un instrument
+function associateArtistsToInstrument(PDO $db, $instrumentID, array $artistIDs) {
+    $sql = "INSERT INTO instrument_has_artiste (instrument_instrumentID, artiste_artisteID) VALUES (?, ?)";
+    $prepare = $db->prepare($sql);
+    foreach ($artistIDs as $artistID) {
+        $prepare->execute([$instrumentID, $artistID]);
+    }
+}
+// Récupérer un instrument et ses artistes associés
+function getInstrumentWithArtists(PDO $db, $instrumentID) {
+    $sql = "SELECT i.*, a.artisteID, a.nom
+            FROM instrument i
+            JOIN instrument_has_artiste iha ON i.instrumentID = iha.instrument_instrumentID
+            JOIN artiste a ON iha.artiste_artisteID = a.artisteID
+            WHERE i.instrumentID = ?";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([$instrumentID]);
+    return $prepare->fetchAll(PDO::FETCH_ASSOC);
+}
+*/
+
+//Récupérer un instrument
+function getInstrumentByID(PDO $db, $instrumentID) {
+    $sql = "SELECT * FROM instrument WHERE instrumentID = ?";
+    $prepare = $db->prepare($sql);
+    try {
+        $prepare->execute([$instrumentID]);
+        $db = $prepare->fetch(PDO::FETCH_ASSOC);
+        return $db;
+    } catch (Exception $e) {
+        error_log("Erreur lors de la récupération de l'instrument : " . $e->getMessage());
+        return false;
+    }
+}
+
+//
+
+//Récupérer tout les isntruments avec Artistes et Médias
+function getAllInstrumentsWithArtistsAndMedia(PDO $db) {
+    $sql = "SELECT i.*, a.*, m.*
+            FROM instrument i
+            LEFT JOIN instrument_has_artiste iha ON i.instrumentID = iha.instrument_instrumentID
+            LEFT JOIN artiste a ON iha.artiste_artisteID = a.artisteID
+            LEFT JOIN media m ON i.instrumentID = m.instrumentID";
+    $prepare = $db->prepare($sql);
+    $prepare->execute();
+    $results = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+    // Traitez les résultats pour regrouper les données par instrument
+    $instruments = [];
+    foreach ($results as $row) {
+        $instrumentID = $row['instrumentID'];
+
+        // Créer un nouvel instrument s'il n'existe pas encore
+        if (!isset($instruments[$instrumentID])) {
+            $instruments[$instrumentID] = [
+                'instrumentID' => $row['instrumentID'],
+                'titre' => $row['titre'],
+                'description' => $row['description'],
+                'date_instrument' => $row['date_instrument'],
+                'category_instrument_categoryID' => $row['category_instrument_categoryID'],
+                'artistes' => [],
+                'media' => [],
+            ];
+        }
+
+        // Ajouter l'artiste à l'instrument
+        if (!empty($row['artisteID'])) {
+            $instruments[$instrumentID]['artistes'][] = [
+                'artisteID' => $row['artisteID'],
+                'nom' => $row['nom'],
+                'wiki_url' => $row['wiki_url'],
+                'website_url' => $row['website_url'],
+            ];
+        }
+
+        // Ajouter le média à l'instrument
+        if (!empty($row['idmedias'])) {
+            $instruments[$instrumentID]['media'][] = [
+                'idmedias' => $row['idmedias'],
+                'instrumentID' => $row['instrumentID'],
+                'type_media' => $row['type_media'],
+                'media_url' => $row['media_url'],
+            ];
+        }
+    }
+
+    // Convertir les instruments en tableau indexé
+    $instruments = array_values($instruments);
+
+    return $instruments;
+}
+// Supprimer un instrument 
+function deleteInstrument(PDO $db, $instrumentID) {
+    $sql = "DELETE FROM instrument WHERE instrumentID = ?";
+    $prepare = $db->prepare($sql);
+    try {
+        return $prepare->execute([$instrumentID]);
+    } catch (Exception $e) {
+        error_log("Erreur lors de la suppression de l'instrument : " . $e->getMessage());
+        return false;
+    }
+}
