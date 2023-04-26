@@ -10,7 +10,8 @@
 </head>
 <body>
     <?php include_once '../includes/publicMenu.php';?>
-    
+
+
     <?php include_once '../includes/publicFooter.php';?>
     
 <script src="js/script.js" defer></script>
