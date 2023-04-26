@@ -8,11 +8,16 @@
         <a href="" class="navnavnav">Contact</a>
       </div>
       <div class="footer-categ">
-        <p> <strong>CATEGORIE</strong></p>
-        <a href="" class="navnavnav">Biseau</a>
-        <a href="" class="navnavnav">Anche libre</a>
-        <a href="" class="navnavnav">Anche simple</a>
-        <a href="" class="navnavnav">Anche double</a>
+        <p> <strong>CATEGORIES</strong></p>
+        <?php
+        foreach ($menu as $item):
+          ?>
+
+        <a href="?p=Category&categoryID=<?=$item["categoryID"]?>" class="navnavnav"><?=$item["cat_instrument"]?></a>
+
+        <?php 
+        endforeach;
+        ?>
       </div>
       <div class="footer-social">
         <p> <strong>RESEAUX</strong></p>
