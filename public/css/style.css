@@ -89,30 +89,6 @@
     margin-bottom: 3%;
 }
 
-/* //CATEG INSTRU// */
-
-.container-categ {
-    background-color: aqua;
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    
-}
-
-.container-categ .container-categ-lien:hover {
-    scale: 1.05;
-    transition: scale .5s 0s;
-}
-
-.imgs-categ {
-    width: 475px;
-    height: 300px;
-    background-color: #fac21b;
-}
-
-/* CENTRER LE TEXTE ET LE GRID */
-
 
 /* CONTACT */
 
