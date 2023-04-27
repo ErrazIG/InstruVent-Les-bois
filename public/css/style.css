@@ -2,7 +2,7 @@
 @import url('https://fonts.cdnfonts.com/css/minion-sc');
 @import url('https://fonts.cdnfonts.com/css/westiga');
 
-/* /FR/NORMES/ED/ */
+/* //NORMES// */
 
 *, *::before, *::after {
     padding: 0;
@@ -11,11 +11,16 @@
     overflow-x: hidden;
 }
 
-/* /FR/NAVBAR/ED/ */
+:root {
+    --brown-background: url(../assets/BgBrown.png);
+    --grey-background: url(../assets/BgGray.png);
+}
+
+/* //NAVBAR// */
 
 .nav-zindex {
     z-index: 100;
-    position: absolute;
+    position: relative;
     top: 0%;
 }
 
@@ -32,11 +37,61 @@
     font-family: 'Westiga', sans-serif;
 }
 
+/* //INTRO INSTRU// */
+
+.title-instrument, .title-categ {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 3px;
+}
+
+.text-instru {
+    background: var(--grey-background);
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 20px ;
+}
+
+.img-instru {
+    width: 550px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.container-test {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,550px);
+    grid-template-rows: repeat(1, 400px);
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.contact-btn {
+    position: relative;
+    top: -38px;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 3%;
+}
+
+.line {
+    position: relative;
+    width: 60%;
+    height: 1px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: black;
+    margin-bottom: 3%;
+}
+
+
 /* CONTACT */
 
-:root {
-    --brown-background: url(../assets/BgBrown.png);
-}
 
 #topNavBar {
     width: 100%;
@@ -74,7 +129,7 @@
     background: var(--brown-background);
 }
 
-/* /FR/FOOTER/ED/ */
+/* //FOOTER// */
 
 .container-footer {
     background: var(--brown-background);
@@ -129,3 +184,27 @@
 .navnavnav:hover, #link:hover {
     color: #fac21b;
 }
+
+/* CATEGORYS VIEW */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+
+}
+.grid-item {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.title-category{
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.description-category{
+    margin-left: 10vw;
+}
+
