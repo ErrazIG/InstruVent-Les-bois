@@ -23,3 +23,18 @@ function recupCategoryById(PDO $db,int $categoryID):array|bool{
     $prepare->closeCursor();
     return $bp;
 }
+
+// Récupérer les instruments par catégorie avec leur image
+function instrumentByCategory(PDO $db, int $categoryID): array {
+    $sql = "SELECT instrument.*, media.media_url
+            FROM instrument
+            LEFT JOIN media ON instrument.instrumentID = media.instrumentID
+            WHERE instrument.categoryID = ? AND media.type_media = 1";
+    $stmt = $db->prepare($sql);
+    try {
+        $stmt->execute([$categoryID]);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
