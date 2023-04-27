@@ -12,14 +12,14 @@
     <?php include_once '../includes/publicMenu.php';?>
 
     <div class="title-category">
-        <h1><?php echo htmlspecialchars($recupcateg['cat_instrument']);/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></h1>
+        <h1><?php echo $recupcateg['cat_instrument'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></h1>
     </div>
     <div class="description-category">
-        <p><?php echo htmlspecialchars($recupcateg['cat_description']);/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></p>
+        <p><?php echo $recupcateg['cat_description'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></p>
     </div>
     <div class="img-category">
         <?php if (!empty($recupcateg['cat_img'])): ?>
-             <img src="<?php echo htmlspecialchars($recupcateg['cat_img']);/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?>" alt="Image de la catégorie">
+             <img src="<?php echo $recupcateg['cat_img'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?>" alt="Image de la catégorie">
         <?php endif; ?>
     </div>
 
@@ -27,9 +27,9 @@
     <div class="grid-container">
     <?php foreach ($instruments as $instrument): ?>
         <div class="grid-item">
-            <?php echo htmlspecialchars($instrument['instrument_name']); ?>
+            <?php echo $instrument['titre']; ?>
             <?php if (!empty($instrument['instrument_img'])): ?>
-            <img src="<?php echo htmlspecialchars($instrument['instrument_img']); ?>" alt="Image de l'instrument">
+            <img src="<?php echo $instrument['instrument_img']; ?>" alt="Image de l'instrument">
             <?php endif; ?>
         </div>
     <?php endforeach; ?>
