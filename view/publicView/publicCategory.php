@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php include_once '../includes/publicMenu.php';?>
+
     <div class="title-category">
         <h1><?php echo htmlspecialchars($recupcateg['cat_instrument']);/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></h1>
     </div>
@@ -36,6 +37,7 @@
 <?php else: ?>
     <p>Aucun instrument trouvé pour cette catégorie.</p>
 <?php endif; ?>
+
 
     <?php include_once '../includes/publicFooter.php';?>
     
