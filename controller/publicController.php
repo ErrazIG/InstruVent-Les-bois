@@ -1,6 +1,6 @@
 <?php
-echo __FILE__;
-
+// Chargement du menu pour toutes les pages 
+$menu = getAllCategoryMenu($connectPDO);
 
 if (isset($_GET['p']) && $_GET['p'] === "Propos"){
 
@@ -14,8 +14,24 @@ if (isset($_GET['p']) && $_GET['p'] === "Propos"){
 
     require_once "../view/publicView/publicContact.php";
 
-}else {
+}elseif (isset($_GET['p']) && $_GET['p'] === "Category"){
 
-    require_once"../view/publicView/publicHomepage.php";
+    if (isset($_GET['categoryID']) && ctype_digit($_GET['categoryID'])) {
+        $categoryID = (int)$_GET['categoryID'];
+        $recupcateg = recupCategoryById($connectPDO, $categoryID);
+        $instruments = instrumentByCategory($connectPDO, $categoryID);
+    }
+
+    require_once "../view/publicView/publicCategory.php";
+
+}elseif (isset($_GET['p']) && $_GET['p'] === "ficheInstrument"){
+
+    require_once "../view/publicView/publicFicheInstrument.php";
+    
+}else {
+    // Appel des modèles
+
+    // Appel de la vue
+    require_once "../view/publicView/publicHomepage.php";
 
 }
