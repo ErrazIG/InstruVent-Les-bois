@@ -29,7 +29,7 @@ function instrumentByCategory(PDO $db, int $categoryID): array {
     $sql = "SELECT instrument.*, media.media_url
             FROM instrument
             LEFT JOIN media ON instrument.instrumentID = media.instrumentID
-            WHERE instrument.categoryID = ? AND media.type_media = 1";
+            WHERE instrument.category_instrument_categoryID = ? AND media.type_media = 1";
     $stmt = $db->prepare($sql);
     try {
         $stmt->execute([$categoryID]);
