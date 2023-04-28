@@ -10,9 +10,9 @@
 </head>
 <body>
     <?php include_once '../includes/publicMenu.php';?>
-
+<div class="block-category">
     <div class="title-category">
-        <h1><?php echo $recupcateg['cat_instrument'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></h1>
+        <h1><?php echo $recupcateg['cat_instrument'] ?></h1>
     </div>
     <div class="description-category">
         <p><?php echo $recupcateg['cat_description'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></p>
@@ -22,7 +22,7 @@
              <img src="<?php echo $recupcateg['cat_img'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?>" alt="Image de la catégorie">
         <?php endif; ?>
     </div>
-
+</div>
     <?php if (!empty($instruments)): ?>
     <div class="grid-container">
     <?php foreach ($instruments as $instrument): ?>
