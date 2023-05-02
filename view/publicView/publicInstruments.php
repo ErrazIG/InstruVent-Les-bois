@@ -35,9 +35,30 @@ Le plus souvent, la partie transformant le son est faite d'un tuyau cylindrique 
 
     <div class="line"></div>
 
-    <h1 class="title-instrument text-center">Catégories</h1>
-
+    <h1 class="title-categ text-center">Catégories</h1>
     
+
+    <div class="categ-instru" >
+        <?php
+        foreach ($menu as $item):
+          ?>
+        <a href="?p=Category&categoryID=<?=$item["categoryID"]?>" class="categ-liens">
+            <?php if (!empty($item['cat_img'])): ?>
+             <img class="img-categ" src="<?php echo $item['cat_img'];?>" alt="Image de la catégorie">
+             
+            <span class="title-img-categ"><?=$item["cat_instrument"]?></span>
+            <?php endif; ?>
+        
+            
+
+        </a>
+
+        <?php 
+        endforeach;
+        ?>
+    </div>
+<!--
+    -->
 
     <?php include_once '../includes/publicFooter.php';?>
     

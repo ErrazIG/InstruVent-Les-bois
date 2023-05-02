@@ -20,20 +20,19 @@
       <form>
         <div class="mb-4 col-auto">
           <label for="exampleInputName1" class="form-label">Nom</label>
-          <input type="text" class="form-control" id="exampleInputName1" size="40">
-          <div id="emailHelp" class="form-text">Entrez un nom ou un pseudo.</div>
+          <input type="text" class="form-control" id="exampleInputName1" size="40" placeholder="Entrez votre nom">
         </div>
         <div class="mb-4 sm-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"size="40">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"size="40" placeholder="Entrez votre Email">
           <div id="emailHelp" class="form-text"></div>
         </div>
         <div class="mb-4 sm-3">
           <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Entrez votre Message"></textarea>
         </div>
-        <div class="mb-4 sm-3 contact-submit">
-        <button type="submit" class=" btn text-white contact-btn ">Envoyer</button>
+        <div class="mb-0 sm-3 contact-submit">
+        <button type="button" class=" btn text-white contact-btn mt-5 ">Envoyer</button>
         </div>
       </form>
     

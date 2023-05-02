@@ -48,7 +48,7 @@
         <p>@Maksym</p>
         <p>@Youssef</p>
     -->
-        <a href="" class="text-white navnavnav">Mentions légales</a>
+        <a href="" class="navnavnav">Mentions légales</a>
 
       </div>
     </div>
