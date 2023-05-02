@@ -28,10 +28,11 @@ Le plus souvent, la partie transformant le son est faite d'un tuyau cylindrique 
 
             <img class="img-instru" src="assets/introInstru.jpg" alt="">
 
-        <button type="button" class="btn text-white contact-btn" style="background: var(--brown-background);">En savoir plus</button>
 
         </div>
     </div>
+    
+    <button type="button" class="btn text-white contact-btn" style="background: var(--brown-background);">En savoir plus</button>
 
     <div class="line"></div>
 
