@@ -11,7 +11,7 @@ function getAllCategoryMenu(PDO $db): array {
 }
 
 // récupère une catégorie complète
-function recupCategoryById(PDO $db,int $categoryID):array|bool{
+function recupCategoryById(PDO $db,int $categoryID):array{
     $recup = "SELECT * FROM category_instrument where categoryID=?";
     $prepare = $db -> prepare($recup);
     try{
