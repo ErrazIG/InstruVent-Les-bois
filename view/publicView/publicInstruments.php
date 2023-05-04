@@ -28,31 +28,38 @@ Le plus souvent, la partie transformant le son est faite d'un tuyau cylindrique 
 
             <img class="img-instru" src="assets/introInstru.jpg" alt="">
 
-        <button type="button" class="btn text-white contact-btn" style="background: var(--brown-background);">En savoir plus</button>
 
         </div>
     </div>
+    
+    <button type="button" class="btn text-white contact-btn" style="background: var(--brown-background);">En savoir plus</button>
 
     <div class="line"></div>
 
-    <h1 class="title-instrument text-center">Catégories</h1>
+    <h1 class="title-categ text-center">Catégories</h1>
+    
 
-    <?php
+    <div class="categ-instru" >
+        <?php
         foreach ($menu as $item):
           ?>
-
-        <div class="container-categ">
-            <a href="?p=Category&categoryID=<?=$item["categoryID"]?>" class="testa">
-             <p class="title-categ-grid"><?=$item["cat_instrument"]?></p>
-             <img src="" alt="" class="imgs-categ">
-        </a>
-        </div>
-
+        <a href="?p=Category&categoryID=<?=$item["categoryID"]?>" class="categ-liens">
+            <?php if (!empty($item['cat_img'])): ?>
+             <img class="img-categ" src="<?php echo $item['cat_img'];?>" alt="Image de la catégorie">
+             
+            <span class="title-img-categ"><?=$item["cat_instrument"]?></span>
+            <?php endif; ?>
         
+            
+
+        </a>
 
         <?php 
         endforeach;
         ?>
+    </div>
+<!--
+    -->
 
     <?php include_once '../includes/publicFooter.php';?>
     

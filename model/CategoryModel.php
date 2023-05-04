@@ -1,7 +1,7 @@
 <?php
 # menu - to PDO with query
 function getAllCategoryMenu(PDO $db): array {
-    $sql ="SELECT categoryID, cat_instrument FROM category_instrument ORDER BY categoryID ASC";
+    $sql ="SELECT categoryID, cat_instrument, cat_img FROM category_instrument ORDER BY categoryID ASC";
     try{
         $query=$db->query($sql);
     }catch(Exception $e){
@@ -29,12 +29,12 @@ function instrumentByCategory(PDO $db, int $categoryID): array {
     $sql = "SELECT instrument.*, media.media_url
             FROM instrument
             LEFT JOIN media ON instrument.instrumentID = media.instrumentID
-            WHERE instrument.categoryID = ? AND media.type_media = 1";
-    $stmt = $db->prepare($sql);
+            WHERE instrument.category_instrument_categoryID = ? AND media.type_media = 1";
+    $prepare = $db->prepare($sql);
     try {
-        $stmt->execute([$categoryID]);
+        $prepare->execute([$categoryID]);
     } catch (Exception $e) {
         die($e->getMessage());
     }
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $prepare->fetchAll(PDO::FETCH_ASSOC);
 }

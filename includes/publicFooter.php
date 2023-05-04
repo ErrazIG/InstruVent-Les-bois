@@ -2,10 +2,10 @@
     <div class="container-footer">
       <div class="footer-menu">
         <p> <strong>MENU</strong></p>
-        <a href="" class="navnavnav">Accueil</a>
-        <a href="" class="navnavnav">A propos</a>
-        <a href="" class="navnavnav">Instrument</a>
-        <a href="" class="navnavnav">Contact</a>
+        <a href="?p=Accueil" class="navnavnav">Accueil</a>
+        <a href="?p=Propos" class="navnavnav">A propos</a>
+        <a href="?p=Instruments" class="navnavnav">Instrument</a>
+        <a href="?p=Contact" class="navnavnav">Contact</a>
       </div>
       <div class="footer-categ">
         <p> <strong>CATEGORIES</strong></p>
@@ -48,7 +48,7 @@
         <p>@Maksym</p>
         <p>@Youssef</p>
     -->
-        <a href="" class="text-white navnavnav">Mentions légales</a>
+        <a href="" class="navnavnav">Mentions légales</a>
 
       </div>
     </div>
