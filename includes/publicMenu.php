@@ -1,33 +1,28 @@
-            <!-- Menu  -->
-    <nav class="navbar navbar-expand-lg nav-zindex" style="width: 100%;position: fixed; background: var(--brown-background);">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white btn-home" href="#"><img src="" alt=""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon icon-menu"></span>
-          </button>
-          <div class="collapse navbar-collapse menu" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link mt-2" id="link" href="?p=Accueil">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mt-2" id="link" href="?p=Propos">A propos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mt-2" id="link" href="?p=Instruments">Instruments</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mt-2" id="link" href="?p=Contact">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="link" href="#">
-                  <!-- Button Admin trigger login modal -->
-                  <button type="button" class="btn btn-warning btn-admin" data-bs-toggle="modal" data-bs-target=".exampleModal">Admin</button></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
+
+  <nav class="navbar">
+    <h1 class="title-navbar">InstruVent Les Bois</h1>
+    <div class="nav-container">
+      <a href="?p=Accueil" id="link">Accueil</a>
+      <a href="?p=Propos" id="link">À propos</a>
+      <a href="?p=Instruments" id="link">Instruments</a>
+      <a href="?p=Contact" id="link">Contact</a>
+      <button type="button" class="btn btn-warning btn-admin" data-bs-toggle="modal" data-bs-target=".exampleModal">Admin</button>
+    </div>
+  </nav>
+  <button class="navbar-burger burger-button" onclick="toggleMenu()"></button>
+  <nav class="menu">
+      <a href="?p=Accueil" style="animation-delay: 0.1s">Accueil</a>
+      <a href="?p=Propos" style="animation-delay: 0.2s">À propos</a>
+      <a href="?p=Instruments" style="animation-delay: 0.3s">Instruments</a>
+      <a href="?p=Contact" style="animation-delay: 0.4s">Contact</a>
+      <button type="button" class="btn btn-warning btn-admin" data-bs-toggle="modal" data-bs-target=".exampleModal">Admin</button>
+  </nav>
+  <script>
+    const toggleMenu = () => {
+    document.body.classList.toggle("open");
+  };
+  </script>
+
 
     <!-- Login Modal -->
     <div class="modal fade exampleModal" id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
