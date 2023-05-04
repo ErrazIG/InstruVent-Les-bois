@@ -30,11 +30,11 @@ function instrumentByCategory(PDO $db, int $categoryID): array {
             FROM instrument
             LEFT JOIN media ON instrument.instrumentID = media.instrumentID
             WHERE instrument.category_instrument_categoryID = ? AND media.type_media = 1";
-    $stmt = $db->prepare($sql);
+    $prepare = $db->prepare($sql);
     try {
-        $stmt->execute([$categoryID]);
+        $prepare->execute([$categoryID]);
     } catch (Exception $e) {
         die($e->getMessage());
     }
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $prepare->fetchAll(PDO::FETCH_ASSOC);
 }
