@@ -9,6 +9,15 @@ require_once '../model/UserModel';
 require_once '../model/ArtisteModel.php';
 require_once '../model/MediaModel.php';
 
+if (isset($_GET['disconnect'])) {
+    // si déconnexion renvoie true
+    if (deconnect()) {
+        // redirection
+        header("Location: ./");
+        exit();
+    }
 
+    
+}
 
 

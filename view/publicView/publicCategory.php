@@ -18,11 +18,11 @@
         <h1><?php echo $recupcateg['cat_instrument'] ?></h1>
     </div>
     <div class="description-category">
-        <p><?php echo $recupcateg['cat_description'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?></p>
+        <p><?php echo $recupcateg['cat_description']; ?></p>
     </div>
     <div class="img-category">
         <?php if (!empty($recupcateg['cat_img'])): ?>
-             <img src="<?php echo $recupcateg['cat_img'];/* PROBLEME D AFFICHAGE CSS ---class id pas encore créée dans css--- SINON TOUT OK*/ ?>" alt="Image de la catégorie">
+             <img class="img-by-categ" src="<?php echo $recupcateg['cat_img']; ?>" alt="Image de la catégorie">
         <?php endif; ?>
     </div>
 </div>
@@ -30,11 +30,13 @@
     <div class="grid-container">
     <?php foreach ($instruments as $instrument): ?>
         <div class="grid-item">
-            <?php echo $instrument['titre']; ?>
-            <?php if (!empty($instrument['instrument_img'])): ?>
-            <img src="<?php echo $instrument['instrument_img']; ?>" alt="Image de l'instrument">
-            <?php endif; ?>
-        </div>
+    <a href="index.php?p=ficheInstrument&instrumentID=<?php echo $instrument['instrumentID']; ?>">
+        <?php echo htmlspecialchars($instrument['titre']); ?>
+        <?php if (!empty($instrument['instrument_img'])): ?>
+            <img src="<?php echo htmlspecialchars($instrument['instrument_img']); ?>" alt="Image de l'instrument">
+        <?php endif; ?>
+    </a>
+</div>
     <?php endforeach; ?>
     </div>
 <?php else: ?>

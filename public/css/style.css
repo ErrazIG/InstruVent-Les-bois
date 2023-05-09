@@ -230,6 +230,11 @@
     background-position: 50% 50%;
 }
 
+.img-by-categ {
+    width: 35%;
+
+}
+
 .title-img-categ {
     color: black;
     z-index: 10;
@@ -369,7 +374,8 @@
 }
 
 .description-category{
-    width: 80vw;
+    width: 50vw;
+    
 }
   
   /* //MOBILE// */
