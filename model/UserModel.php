@@ -63,7 +63,7 @@ function getUserEmailByUsername(PDO $db, string $username): ?string {
     }
 }
 
-function getOneUserById(PDO $db, int $uid): array|bool {
+function getOneUserById(PDO $db, int $uid): array {
 
     $sql="SELECT userID, username FROM user WHERE userID=?";
     $prepare=$db->prepare($sql);
@@ -77,7 +77,7 @@ function getOneUserById(PDO $db, int $uid): array|bool {
     return $return;
     }
 
-    function connectUserByUsername(PDO $db, string $uname, string $pass) :bool|string {
+    function connectUserByUsername(PDO $db, string $uname, string $pass) :bool {
         // select user, même si le mot de passe n'est pas bon
     $sql="SELECT * FROM user WHERE username=?";
     $prepare=$db->prepare($sql);

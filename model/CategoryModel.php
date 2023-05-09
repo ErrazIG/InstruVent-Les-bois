@@ -1,7 +1,7 @@
 <?php
 # menu - to PDO with query
 function getAllCategoryMenu(PDO $db): array {
-    $sql ="SELECT categoryID, cat_instrument FROM category_instrument ORDER BY categoryID ASC";
+    $sql ="SELECT categoryID, cat_instrument, cat_img FROM category_instrument ORDER BY categoryID ASC";
     try{
         $query=$db->query($sql);
     }catch(Exception $e){
@@ -11,7 +11,7 @@ function getAllCategoryMenu(PDO $db): array {
 }
 
 // récupère une catégorie complète
-function recupCategoryById(PDO $db,int $categoryID):array|bool{
+function recupCategoryById(PDO $db,int $categoryID):array{
     $recup = "SELECT * FROM category_instrument where categoryID=?";
     $prepare = $db -> prepare($recup);
     try{
