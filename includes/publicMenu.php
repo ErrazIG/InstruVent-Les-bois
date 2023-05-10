@@ -1,6 +1,6 @@
 
   <nav class="navbar">
-    <h1 class="title-navbar">InstruVent Les Bois</h1>
+    <a href="?p=Accueil" id="link" style="text-decoration: none;"><h1 class="title-navbar">InstruVent Les Bois</h1></a>
     <div class="nav-container">
       <a href="?p=Accueil" id="link">Accueil</a>
       <a href="?p=Propos" id="link">À propos</a>
@@ -15,7 +15,7 @@
       <a href="?p=Propos" style="animation-delay: 0.2s">À propos</a>
       <a href="?p=Instruments" style="animation-delay: 0.3s">Instruments</a>
       <a href="?p=Contact" style="animation-delay: 0.4s">Contact</a>
-      <button type="button" class="btn btn-warning btn-admin" data-bs-toggle="modal" data-bs-target=".exampleModal">Admin</button>
+      <a href="" style="animation-delay: 0.5s"><button type="button" class="btn btn-warning btn-admin" data-bs-toggle="modal" data-bs-target=".exampleModal">Admin</button></a>
   </nav>
   <script>
     const toggleMenu = () => {
