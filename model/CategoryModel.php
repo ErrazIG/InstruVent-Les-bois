@@ -28,6 +28,27 @@ function recupCategoryById(PDO $db,int $categoryID):array{
 function instrumentByCategory(PDO $db, int $categoryID): array {
     $sql = "SELECT instrument.*, media.media_url
             FROM instrument
+            INNER JOIN (
+                SELECT instrumentID, MIN(idmedias) as idmedias
+                FROM media
+                WHERE type_media = 1
+                GROUP BY instrumentID
+            ) AS subquery ON instrument.instrumentID = subquery.instrumentID
+            LEFT JOIN media ON subquery.idmedias = media.idmedias
+            WHERE instrument.category_instrument_categoryID = ?";
+    $prepare = $db->prepare($sql);
+    try {
+        $prepare->execute([$categoryID]);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    return $prepare->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Récupérer les instruments par catégorie avec leurs 3 image chacuns
+function allInstrumentByCategory(PDO $db, int $categoryID): array {
+    $sql = "SELECT instrument.*, media.media_url
+            FROM instrument
             LEFT JOIN media ON instrument.instrumentID = media.instrumentID
             WHERE instrument.category_instrument_categoryID = ? AND media.type_media = 1";
     $prepare = $db->prepare($sql);
