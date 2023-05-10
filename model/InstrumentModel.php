@@ -84,7 +84,7 @@ function getInstrumentWithArtists(PDO $db, $instrumentID) {
     return $prepare->fetchAll(PDO::FETCH_ASSOC);
 }
 */
-
+/*
 //Récupérer un instrument
 function getInstrumentByID(PDO $db, $instrumentID) {
     $sql = "SELECT * FROM instrument WHERE instrumentID = ?";
@@ -97,6 +97,20 @@ function getInstrumentByID(PDO $db, $instrumentID) {
         error_log("Erreur lors de la récupération de l'instrument : " . $e->getMessage());
         return false;
     }
+}
+*/
+function getInstrumentById(PDO $db, int $instrumentID): array {
+    $sql = "SELECT instrument.*, media.media_url
+            FROM instrument
+            LEFT JOIN media ON instrument.instrumentID = media.instrumentID
+            WHERE instrument.instrumentID = ? AND media.type_media = 1";
+    $prepare = $db->prepare($sql);
+    try {
+        $prepare->execute([$instrumentID]);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    return $prepare->fetch(PDO::FETCH_ASSOC);
 }
 
 //
