@@ -19,15 +19,22 @@
     <h2><?php echo $instrument['titre']; ?></h2>
     <p><?php echo $instrument['description']; ?></p>
 
-    <img src="" alt=""> <!-- AJOUTER UNE IMAGE -->
+    <img src="<?php echo $image[0]['media_url']; ?>" alt=""> <!-- AJOUTER UNE IMAGE -->
+    <img src="<?php echo $image[1]['media_url']; ?>" alt=""> 
+    <img src="<?php echo $image[2]['media_url']; ?>" alt=""> 
+    <?php var_dump($image) ?>
 
     <div>
         <h3>Ecoutez</h3>
-        <?php if (!empty($audio['media_url'])): ?>
-            <audio controls>
-                <source src="<?php echo $audio['media_url']; ?>" type="audio/mpeg">
-            </audio>
-        <?php endif; ?>
+        <div class="player">
+          <img id="ficheImg" src="assets/blg.jpg" style="transform: rotate(0deg);" alt="">
+  
+            <span class="txtplayer">Artist - Titre</span>
+
+        <audio src="assets/blg.mp3" class="audio"></audio>
+        <div class="audio-btn" onclick="play()"></div>
+    </div>
+
 
         <?php if (!empty($artist)): ?>
             <p>Cet instrument est joué par <?php echo $artist['nom']; ?> voici un lien vers sa <a href="<?php echo $artist['wiki_url']; ?>">Page Wikipédia</a> </p>
@@ -36,7 +43,7 @@
     </div>
 
     <div>
-        <?php if (!empty($video['media_url']) && !empty($image['media_url'])): ?>
+        <?php if (!empty($video['media_url']) || !empty($image['media_url'])): ?>
                 <video width="320" height="240" controls>
                     <source src="<?php echo $video['media_url']; ?>" type="video/mp4">
                 </video>

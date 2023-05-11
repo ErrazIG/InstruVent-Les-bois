@@ -1,6 +1,6 @@
 <?php
 function getMediaByTypeAndInstrument(PDO $db, int $instrumentID, int $type): array {
-    $sql = "SELECT * FROM media WHERE instrumentID = ? AND type_media = ?";
+    $sql = "SELECT media_url FROM media WHERE instrumentID = ? AND type_media = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$instrumentID, $type]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
