@@ -174,6 +174,17 @@
   font-size: 17px;
 }
 
+/* //CAROUSSEL// */
+
+.container-img {
+  width: 900px;
+  height: auto;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 3.5%;
+}
+
 /* //INTRO INSTRU// */
 
 .title-instrument, .title-categ {
@@ -423,6 +434,103 @@
       margin-top: 7px;
       font-size: 28px;
     }
+    
+    .flex-home {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10%;
+      margin-bottom: 5%;
+    }
+
+    .flex-home img {
+      width: 80%;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      margin-bottom: 8%;
+    }
+    
+    .flex-home p {
+      width: 81%;
+      font-size: 15px;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      text-align: justify;
+    }
+
+    .container-img {
+      width: 350px;
+      height: auto;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      margin-bottom: 3.5%;
+    }
+    .container-test {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      justify-content: center;
+      padding: 10% 0;
+    }
+
+    .text-instru {
+      width: 100%;
+      height: 100%;
+      font-size: 15px;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      text-align: justify;
+    }
+    .img-instru {
+      width: 350px;
+      height: auto;
+      position: relative;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .categ-instru {
+      width: 100%;
+      display: grid;
+      grid-template-columns:  300px;
+      grid-template-rows: repeat(4, auto);
+      gap: 20px;
+      position: relative;
+      left: -30px;
+    }
+
+    .img-categ {
+      width: 100%;
+      background-size: contain;
+      position: relative;
+      left: -55px;
+    }
+
+    .categ-instru a:nth-child(1) .img-categ {
+      transform: rotate(-90deg) scale(.56);
+    }
+
+    .categ-instru a:nth-child(2) .img-categ {
+        transform: scale(1) translateY(50px);
+    }
+
+    .categ-instru a:nth-child(3) .img-categ {
+        transform: rotate(-90deg) scale(.67);
+    }
+
+    .categ-instru a:nth-child(4) .img-categ {
+        transform: rotate(-90deg) scale(.57);
+    }
+    
 }
   
   /* //TABLETTE// */

@@ -14,12 +14,23 @@
     <?php include_once '../includes/publicMenu.php';?>
 
     <div class="home-content">
-        <h1 class="home-title">Les instruments a vent, les bois</h1>
+        <h1 class="home-title">À Propos</h1>
         <div class="flex-home">
-            <p>Les instruments à vent de la famille des bois sont une catégorie    fascinante d'instruments de musique qui produisent du son grâce à la   vibration de l'air à l'intérieur de tubes en bois. Ils comprennent une    large variété d'instruments, tels que la flûte traversière, le clarinette,     le saxophone, le hautbois, le basson et bien d'autres. Chaque instrument de     cette famille possède un caractère sonore unique, offrant une grande    diversité de timbres et d'expressions. Les musiciens qui jouent de ces     instruments utilisent leur souffle pour créer des mélodies et des harmonies     en contrôlant avec précision la pression de l'air et les doigtés sur les    différentes touches. Les instruments à vent de la famille des bois jouent  un rôle essentiel dans de nombreux styles musicaux, de la musique classique  à la jazz, en passant par les musiques traditionnelles du monde entier.  Leur son chaleureux et leur flexibilité en font des partenaires  indispensables dans l'orchestre, l'ensemble de musique de chambre ou en  solo, apportant une richesse et une profondeur exceptionnelles à la musique.</p>
-        
-            <img src="assets/francois-masson-3.png" alt="">
+            <p>Les instruments à vent de la famille des bois sont une merveilleuse catégorie d'instruments de musique, réputée pour leur son chaleureux et expressif. Ils tirent leur nom du matériau principal utilisé pour leur construction, le bois, qui leur confère une richesse sonore distincte. Cette famille d'instruments comprend des membres emblématiques tels que la flûte traversière, le hautbois, la clarinette et le basson, ainsi que d'autres instruments moins connus mais tout aussi fascinants.</p>
+            <img src="assets/fdp.png" alt="">
+            <p>La flûte traversière, légère et élégante, produit des notes cristallines et aériennes. Elle est souvent associée à la musique classique, mais on la retrouve également dans d'autres genres musicaux comme le jazz et la musique pop. Les musiciens jouent de la flûte en soufflant dans l'embouchure et en manipulant les clés pour produire différentes notes.<br><br>
+
+Le hautbois, quant à lui, est connu pour son timbre distinctif et son rôle central dans les orchestres. Son son est souvent décrit comme étant clair et nasillard. Les hautboïstes utilisent une anche double pour produire des vibrations qui se transforment en mélodies en ajustant la pression de l'air et en modulant les doigtés. <br><br>
+
+La clarinette, avec sa sonorité riche et expressive, est présente dans une grande variété de styles musicaux. Elle se décline en plusieurs tailles, de la petite clarinette soprano à la grande clarinette basse. Les musiciens jouent de la clarinette en soufflant à travers un bec muni d'une anche simple et en utilisant les clés pour changer la hauteur des notes. <br><br>
+
+Le basson, souvent considéré comme l'instrument le plus grave de la famille des bois, possède un son profond et résonnant. Il est souvent utilisé pour ajouter de la profondeur et de la gravité à l'orchestre. Les bassonistes jouent de cet instrument en soufflant dans une anche double et en manipulant les clés pour produire une large gamme de notes. <br><br>
+
+En plus de ces instruments principaux, la famille des bois comprend également d'autres instruments tels que le cor anglais, la clarinette basse, la flûte piccolo et le saxophone. Chacun de ces instruments apporte sa propre couleur sonore et son caractère unique à la musique. <br><br>
+
+Que ce soit dans un orchestre, un ensemble de chambre ou en solo, les instruments à vent de la famille des bois ajoutent une dimension mélodique et expressive à la musique. Leur capacité à imiter la voix humaine et à évoquer une large gamme d'émotions en fait des instruments inestimables pour les compositeurs et les interprètes.</p>
         </div>
+        
     </div>
     
     <?php include_once '../includes/publicFooter.php';?>
