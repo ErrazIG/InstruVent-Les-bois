@@ -16,7 +16,7 @@
     <div class="about-content">
         <h1 class="home-title">À Propos</h1>
         <div class="flex-home">
-            <p>Les instruments à vent de la famille des bois sont une merveilleuse catégorie d'instruments de musique, réputée pour leur son chaleureux et expressif. Ils tirent leur nom du matériau principal utilisé pour leur construction, le bois, qui leur confère une richesse sonore distincte. Cette famille d'instruments comprend des membres emblématiques tels que la flûte traversière, le hautbois, la clarinette et le basson, ainsi que d'autres instruments moins connus mais tout aussi fascinants.</p>
+            <p>Les instruments à vent de la famille des bois sont une merveilleuse catégorie d'instruments de musique, réputée pour leur son chaleureux et expressif. Ils tirent leur nom du matériau principal utilisé pour leur construction, le bois, qui leur confère une richesse sonore distincte.  Grâce à leur nature organique, les instruments à vent en bois sont capables de produire une large gamme de tonalités, allant des notes douces et mélodieuses aux sons puissants et percutants. Leur contribution à l'orchestre et à la musique en général est inestimable, et ils continuent d'enchanter les auditoires du monde entier avec leur son unique et captivant. Cette famille d'instruments comprend des membres emblématiques tels que la flûte traversière, le hautbois, la clarinette et le basson, ainsi que d'autres instruments moins connus mais tout aussi fascinants.</p>
             <img src="assets/fdp.png" alt="">
             
         </div>

@@ -171,8 +171,9 @@
 
 .flex-home p {
   width: 81%;
-  font-size: 20px;
+  font-size: 17px;
   text-align: justify;
+  padding: 5%;
 }
 
 /* //CAROUSSEL// */
@@ -207,7 +208,7 @@
 /* //INTRO INSTRU// */
 
 .title-instrument, .title-categ {
-    padding: 3px;
+    padding: 2%;
 }
 
 .text-instru {
@@ -217,7 +218,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    padding: 20px;
+    font-size: 17px;
 }
 
 .img-instru {
@@ -230,8 +231,9 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2,550px);
-    grid-template-rows: repeat(1, 400px);
+    grid-template-rows: repeat(1, auto);
     justify-content: center;
+    gap: 5%;
 }
 
 .contact-btn {

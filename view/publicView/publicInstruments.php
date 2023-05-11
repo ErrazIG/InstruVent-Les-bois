@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <button type="button" class="btn text-white contact-btn">En savoir plus</button>
+        <a href=""><button type="button" class="btn text-white contact-btn">En savoir plus</button></a>
 
         <div class="line"></div>
 
