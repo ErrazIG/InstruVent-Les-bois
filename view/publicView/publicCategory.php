@@ -13,35 +13,31 @@
 <div class="body-content">
 
     <?php include_once '../includes/publicMenu.php';?>
-<div class="block-category">
-    <div class="title-category">
-        <h1><?php echo $recupcateg['cat_instrument'] ?></h1>
-    </div>
-    <div class="description-category">
+        <h1 style="text-align: center; margin: 1% 0%; padding:1%;"><?php echo $recupcateg['cat_instrument'] ?></h1>
+    <div class="flex-home">
         <p><?php echo $recupcateg['cat_description']; ?></p>
-    </div>
-    <div class="img-category">
         <?php if (!empty($recupcateg['cat_img'])): ?>
-             <img class="img-by-categ" src="<?php echo $recupcateg['cat_img']; ?>" alt="Image de la catégorie">
+             <img class="img-categ" style=" background-size: cover;" src="<?php echo $recupcateg['cat_img']; ?>" alt="Image de la catégorie">
         <?php endif; ?>
     </div>
-</div>
+
     <?php if (!empty($instruments)): ?>
+
     <div class="grid-container">
-    <?php foreach ($instruments as $instrument): ?>
-        <div class="grid-item">
-    <a href="index.php?p=ficheInstrument&instrumentID=<?php echo $instrument['instrumentID']; ?>">
-        <?php echo htmlspecialchars($instrument['titre']); ?>
-        <?php if (!empty($instrument['instrument_img'])): ?>
-            <img src="<?php echo htmlspecialchars($instrument['instrument_img']); ?>" alt="Image de l'instrument">
-        <?php endif; ?>
-    </a>
-</div>
-    <?php endforeach; ?>
+        <?php foreach ($instruments as $instrument): ?>
+            <div class="grid-item">
+                <a href="index.php?p=ficheInstrument&instrumentID=<?php echo $instrument['instrumentID']; ?>">
+                <?php echo htmlspecialchars($instrument['titre']); ?>
+                <?php if (!empty($instrument['instrument_img'])): ?>
+                <img src="<?php echo htmlspecialchars($instrument['instrument_img']); ?>" alt="Image de l'instrument">
+                <?php endif; ?>
+                </a>
+            </div>
+        <?php endforeach; ?>
     </div>
-<?php else: ?>
-    <p>Aucun instrument trouvé pour cette catégorie.</p>
-<?php endif; ?>
+        <?php else: ?>
+        <p>Aucun instrument trouvé pour cette catégorie.</p>
+        <?php endif; ?>
 
 
     <?php include_once '../includes/publicFooter.php';?>

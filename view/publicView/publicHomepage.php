@@ -13,7 +13,7 @@
 
     <?php include_once '../includes/publicMenu.php';?>
     <div class="home-content">
-        <h1 class="home-title">Les instruments a vent, les bois</h1>
+        <h1 class="home-title">Les instruments à vent: les bois</h1>
         <div class="flex-home">
             <img src="assets/francois-masson-3.png" alt="">
             <p>Les instruments à vent de la famille des bois sont une catégorie    fascinante d'instruments de musique qui produisent du son grâce à la   vibration de l'air à l'intérieur de tubes en bois. Ils comprennent une    large variété d'instruments, tels que la flûte traversière, le clarinette,     le saxophone, le hautbois, le basson et bien d'autres. Chaque instrument de     cette famille possède un caractère sonore unique, offrant une grande    diversité de timbres et d'expressions. Les musiciens qui jouent de ces     instruments utilisent leur souffle pour créer des mélodies et des harmonies     en contrôlant avec précision la pression de l'air et les doigtés sur les    différentes touches. Les instruments à vent de la famille des bois jouent  un rôle essentiel dans de nombreux styles musicaux, de la musique classique  à la jazz, en passant par les musiques traditionnelles du monde entier.  Leur son chaleureux et leur flexibilité en font des partenaires  indispensables dans l'orchestre, l'ensemble de musique de chambre ou en  solo, apportant une richesse et une profondeur exceptionnelles à la musique.</p>

@@ -148,7 +148,6 @@
 
 .home-content {
   text-align: center;
-  
 }
 
 .home-title {
@@ -159,8 +158,9 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  left: 53%;
+  transform: translate(-50%);
   padding: 0 10%;
   margin-bottom: 5%;
 }
@@ -172,6 +172,8 @@
 .flex-home p {
   width: 81%;
   font-size: 17px;
+  text-align: justify;
+  padding: 5%;
 }
 
 /* //CAROUSSEL// */
@@ -185,10 +187,28 @@
   margin-bottom: 3.5%;
 }
 
+/* //ABOUT// */
+
+.about-content {
+  text-align: center;
+}
+
+.txt-abt {
+  width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  column-count: 2;
+  column-gap: 60px;
+  text-align: justify;
+  padding: 2%;
+  font-size: 20px;
+}
+
 /* //INTRO INSTRU// */
 
 .title-instrument, .title-categ {
-    padding: 3px;
+    padding: 2%;
 }
 
 .text-instru {
@@ -198,7 +218,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    padding: 20px;
+    font-size: 17px;
 }
 
 .img-instru {
@@ -211,8 +231,9 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2,550px);
-    grid-template-rows: repeat(1, 400px);
+    grid-template-rows: repeat(1, auto);
     justify-content: center;
+    gap: 5%;
 }
 
 .contact-btn {
@@ -269,10 +290,6 @@
     background-position: 50% 50%;
 }
 
-.img-by-categ {
-    width: 35%;
-
-}
 
 .title-img-categ {
     color: black;
@@ -331,6 +348,7 @@
     left: 50%;
     transform: translate(-50%);
     background: var(--brown-background);
+    margin-bottom: 25%;
 }
 
 /* //FOOTER// */
@@ -456,7 +474,7 @@
     }
     
     .flex-home p {
-      width: 81%;
+      width: 80%;
       font-size: 15px;
       position: relative;
       left: 50%;
@@ -538,6 +556,14 @@
 
     .categ-instru a:nth-child(4) .img-categ {
         transform: rotate(-90deg) scale(.57);
+    }
+
+    .txt-abt {
+      column-count: 1;
+      font-size: 15px;
+    }
+    #br {
+      visibility: visible;
     }
     
 }
