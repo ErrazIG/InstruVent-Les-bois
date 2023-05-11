@@ -15,10 +15,12 @@
         <?php include_once '../includes/publicMenu.php';?>
 
         <div class="content-instruments">
+            
+        <h1 class="title-instrument text-center">Instruments</h1>
 
-            <h1 class="title-instrument text-center">Instruments</h1>
 
             <div class="container-test">
+                
 
                 <p class="text-instru">Les bois sont une famille d'instruments de musique à vent qui se caractérisent par leur système d'émission du son constitué soit par un biseau comme les flûtes, soit par la vibration d'une anche simple comme la clarinette ou double comme le hautbois.
 

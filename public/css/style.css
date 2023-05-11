@@ -192,7 +192,6 @@
 }
 
 .text-instru {
-    background: var(--grey-background);
     width: 100%;
     height: 100%;
     text-align: justify;
@@ -420,6 +419,9 @@
   
   /* //MOBILE// */
   @media screen and (max-width: 720px) {
+    body {
+    line-height: 0;
+    }
     .nav-container {
       visibility:hidden;
     }
@@ -446,7 +448,7 @@
     }
 
     .flex-home img {
-      width: 80%;
+      width: 350px;
       position: relative;
       left: 50%;
       transform: translate(-50%);
@@ -460,6 +462,13 @@
       left: 50%;
       transform: translate(-50%);
       text-align: justify;
+    }
+
+    .title-instrument {
+      position: absolute;
+      top: 9.5%;
+      left: 50%;
+      transform: translate(-50%);
     }
 
     .container-img {
@@ -481,7 +490,7 @@
     }
 
     .text-instru {
-      width: 100%;
+      width: 80%;
       height: 100%;
       font-size: 15px;
       position: relative;
@@ -501,7 +510,7 @@
     .categ-instru {
       width: 100%;
       display: grid;
-      grid-template-columns:  300px;
+      grid-template-columns:  300px ;
       grid-template-rows: repeat(4, auto);
       gap: 20px;
       position: relative;
