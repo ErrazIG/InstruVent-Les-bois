@@ -6,6 +6,15 @@ require_once "../model/UserModel.php";
 require_once "../model/CategoryModel.php";
 require_once "../model/MediaModel.php";
 require_once "../model/ArtisteModel.php";
+
+if(isset($_POST['username'],$_POST['user_pwd'])) {
+    $connect = connectUserByUsername($connectPDO, $_POST['username'], $_POST['user_pwd']);
+    if($connect === true) {
+        header("location: ./");
+        exit;
+    }
+}
+
 // Chargement du menu pour toutes les pages 
 $menu = getAllCategoryMenu($connectPDO);
 
@@ -59,3 +68,4 @@ if (isset($_GET['p']) && $_GET['p'] === "Propos"){
     require_once "../view/publicView/publicHomepage.php";
 
 }
+var_dump($_POST);

@@ -2,7 +2,6 @@ var audio = document.querySelector(".audio");
 var btn = document.querySelector(".audio-btn");
 var img = document.querySelector("#ficheImg");
 
-btn.style.background = "url(assets/play.png) no-repeat";
 
 function play() {
     if(audio.paused) {
