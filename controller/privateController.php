@@ -13,10 +13,14 @@ if (isset($_GET['disconnect'])) {
 
     
 }
-if (isset($_GET['p']) && $_GET['p'] === "Create"){
+if (isset($_GET['p']) && $_GET['p'] === "Update"){
+
+    require_once "../view/privateView/privateUpdate.php";
+
+}elseif (isset($_GET['p']) && $_GET['p'] === "Create"){
 
     require_once "../view/privateView/privateCreate.php";
-
+    
 }else {
     require_once "../view/privateView/privateHomepage.php";
 
