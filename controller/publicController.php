@@ -68,4 +68,4 @@ if (isset($_GET['p']) && $_GET['p'] === "Propos"){
     require_once "../view/publicView/publicHomepage.php";
 
 }
-var_dump($_POST);
+//var_dump($_POST);

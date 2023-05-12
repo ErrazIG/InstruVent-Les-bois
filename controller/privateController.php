@@ -13,8 +13,14 @@ if (isset($_GET['disconnect'])) {
 
     
 }
+if (isset($_GET['p']) && $_GET['p'] === "Create"){
+
+    require_once "../view/privateView/privateCreate.php";
+
+}else {
+    require_once "../view/privateView/privateHomepage.php";
+
+}
 
 
 var_dump($_SESSION);
-?>
-<a href="?disconnect"> Se Deco</a>
