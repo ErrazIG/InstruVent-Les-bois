@@ -3,7 +3,6 @@
       <div class="footer-menu">
         <p> <strong>MENU</strong></p>
         <a href="?" class="navnavnav">Accueil</a>
-        <a href="?p=Update" class="navnavnav">Update</a>
         <a href="?p=Create" class="navnavnav">Create</a>
       </div>
       <div class="footer-social">
