@@ -414,15 +414,24 @@
 /* CATEGORYS VIEW */
 
 .grid-container {
-    display: grid;
+    /*display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 10px;*/
+    display: flex;
+    width: 90vw;
+    margin: auto;
+    justify-content: center;
+    padding: 3%;
+    gap: 8%;
+    
 
 }
 .grid-item {
     border: 1px solid black;
     padding: 1em;
     text-align: center;
+    width: 30%;
+
 }
 
 .title-category{
@@ -440,6 +449,23 @@
     body {
     line-height: 0;
     }
+
+    .grid-container {
+      flex-direction: column;
+      display: flex;
+      width: 90vw;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      padding: 3%;
+      gap: 1%;
+    }
+
+    .grid-item {
+      margin-bottom: 3%;
+      width: 50vw;
+    }
+
     .nav-container {
       visibility:hidden;
     }
