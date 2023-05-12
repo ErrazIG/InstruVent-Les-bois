@@ -4,7 +4,8 @@
 # var_dump($_SESSION);
 
 $allCateg = getAllCategoryMenu($connectPDO);
-
+$instrumentsInfos = getAllInstrumentsWithArtistsAndMedia($connectPDO);
+//var_dump($instrumentsInfos);
 
 if (isset($_GET['disconnect'])) {
     // si déconnexion renvoie true
@@ -16,7 +17,12 @@ if (isset($_GET['disconnect'])) {
 }
 
 if (isset($_GET['p']) && $_GET['p'] === "Update"){
+// Récupérer l'instrument à modifier
+$instrumentID = $_GET['instrumentID'];
+$instrument = getInstrumentWithArtistsAndMedia($db, $instrumentID);
 
+// Récupérer toutes les catégories
+$categories = getAllCategories($db);
     require_once "../view/privateView/privateUpdate.php";
 
 }elseif (isset($_GET['p']) && $_GET['p'] === "Create"){
@@ -28,6 +34,12 @@ if (isset($_GET['p']) && $_GET['p'] === "Update"){
 
     require_once "../view/privateView/privateCreate.php";
     
+}elseif (isset($_GET['deletePost'])) {
+    $deleted = deleteInstrument($connectPDO, $_GET['deletePost']);
+    if($deleted) {
+        header("Location: ?p=HomePage");
+        exit();
+    }
 }else {
     require_once "../view/privateView/privateHomepage.php";
 

@@ -9,64 +9,56 @@
     <title>Accueil Admin</title>
 </head>
 <body>
-    <?php include_once "../includes/privateMenu.php";?>
+<?php include_once "../includes/privateMenu.php";?>
 
-    <div>
-        <h1>Insérer un article</h1>
-        <h3>Accueil de l'administration</a></h3>
-        <h4>Bienvenue <?=$_SESSION['userscreen']?></h4>
+<div class="mb-4">
+    <h1 class="fw-bolder mb-1">Accueil de l'administration</a></h3>
+    <h4>Bienvenue <?=$_SESSION['username']?></h4>
+</div>
+<div class="col-lg-12">
+    <h3><?php if(isset($_GET['p'])) echo $_GET['p']; ?></h3>
+            <?php
+        // Pas de post
+        if( sizeof($instrumentsInfos) == 0):
+                        ?>
+        <h3>Pas encore d'article sur votre site</h3>
+                        <?php
+        // on a des post                
+        else:
+                        ?>
+        <h3>Nous avons <?= sizeof($instrumentsInfos) ?> instrument(s)</h3>
+        <table cellpadding=10>
+            <thead>
+                <tr>
+                    <th>instrumentID</th>
+                    <th>titre</th>
+                    <th>description</th>
+                    <th>date_instrument</th>
+                    <th>visible</th>
+                    <th>username</th>
+                    <th>category_instrument_categoryID</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead><tbody>
+
+        <?php foreach($instrumentsInfos as $instrumentInfo): ?>
+        
+        <tr>
+            <td><?=$instrumentInfo['instrumentID']?></td>
+            <td><?=$instrumentInfo['titre']?></td>
+            <td><?=$instrumentInfo['description']?></td>
+            <td><?=$instrumentInfo['date_instrument']?></td>
+            <td><?=$instrumentInfo['category_instrument_categoryID']?></td>
+            <td><a href="?updatePost=<?=$instrumentInfo['instrumentID']?>">update</a></td>
+            <td><a onclick="void(0);let a=confirm('Voulez-vous vraiment supprimer \'<?=$instrumentInfo['titre']?>\' ?'); if(a){ document.location = '?deletePost=<?=$instrumentInfo['instrumentID']?>'; };" href="#">delete</a></td>
+        </tr>
+        
+        <?php endforeach; ?>
+
+        </tbody>
+        </table>
+            <?php endif; ?>
     </div>
-
-    <div>
-        <h3>Modification d'un article :  </h3>
-        <form method="POST" action="" name="Update">
-            <label for="exampleInputEmail1">Titre</label>
-            <input name="title" type="text" id="exampleInputEmail1" required value="<?=$instrument['titre']?>"><br>
-            <label for="exampleInputPassword1">Description</label>
-            <textarea name="description" id="exampleInputPassword1" required><?=$instrument['description']?></textarea><br>
-
-            <!-- Add other fields as necessary -->
-
-            <input type="submit" value="Submit">
-        </form>
-        <form action="?update_instrument" method="post">
-            <input type="hidden" name="instrumentID" value="<?php echo $instrument['instrumentID']; ?>">
-
-            <label for="titre">Titre</label>
-            <input type="text" id="titre" name="titre" value="<?php echo $instrument['titre']; ?>">
-            
-            <label for="description">Description</label>
-            <textarea id="description" name="description"><?php echo $instrument['description']; ?></textarea>
-
-            <label for="date_instrument">Date</label>
-            <input type="date" id="date_instrument" name="date_instrument" value="<?php echo $instrument['date_instrument']; ?>">
-            
-            <label for="category_instrument_categoryID">Catégorie d'instrument</label>
-            <input type="number" id="category_instrument_categoryID" name="category_instrument_categoryID" value="<?php echo $instrument['category_instrument_categoryID']; ?>">
-            
-            <!-- Pour chaque media lié à l'instrument, affichez une section pour modifier le media -->
-            <?php foreach($instrument['media'] as $media): ?>
-            <section>
-                <label for="media_<?php echo $media['idmedias']; ?>">Média <?php echo $media['idmedias']; ?></label>
-                <input type="text" id="media_<?php echo $media['idmedias']; ?>" name="media[<?php echo $media['idmedias']; ?>]" value="<?php echo $media['media_url']; ?>">
-            </section>
-            <?php endforeach; ?>
-            
-            <input type="submit" value="Mettre à jour l'instrument">
-</form>
-    </div>
-
-    <?php include "../includes/privateFooter.php"; ?>
-
-    <script>
-        // Add a listener to all input fields
-        document.querySelectorAll('input, textarea').forEach(input => {
-            // On change, submit the form automatically
-            input.addEventListener('change', () => {
-                document.forms['Update'].submit();
-            });
-        });
-    </script>
-
 </body>
 </html>

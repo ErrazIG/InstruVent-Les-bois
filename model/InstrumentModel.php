@@ -97,7 +97,7 @@ function getInstrumentById(PDO $db, int $instrumentID): array {
 //
 
 //Récupérer tout les isntruments avec Artistes et Médias
-function getAllInstrumentsWithArtistsAndMedia(PDO $db) {
+function getAllInstrumentsWithArtistsAndMedia(PDO $db){
     $sql = "SELECT i.*, a.*, m.*
             FROM instrument i
             LEFT JOIN instrument_has_artiste iha ON i.instrumentID = iha.instrument_instrumentID
