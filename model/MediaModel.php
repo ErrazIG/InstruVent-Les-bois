@@ -1,4 +1,18 @@
 <?php
+function getMediaByTypeAndInstrument(PDO $db, int $instrumentID, int $type): array {
+    $sql = "SELECT media_url FROM media WHERE instrumentID = ? AND type_media = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$instrumentID, $type]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Vérifier si le résultat est un tableau et non un booléen
+    if (is_array($result)) {
+        return $result;
+    } else {
+        return []; // Retourner un tableau vide si le résultat est un booléen
+    }
+}
+
 // créer un média
 function createMedia(PDO $db, int $instrumentID, int $type_media, string $media_url): bool {
     $sql = "INSERT INTO media (instrumentID, type_media, media_url) VALUES (:instrumentID, :type_media, :media_url)";

@@ -63,7 +63,7 @@ function getUserEmailByUsername(PDO $db, string $username): ?string {
     }
 }
 
-function getOneUserById(PDO $db, int $uid): array|bool {
+function getOneUserById(PDO $db, int $uid): array {
 
     $sql="SELECT userID, username FROM user WHERE userID=?";
     $prepare=$db->prepare($sql);
@@ -77,7 +77,7 @@ function getOneUserById(PDO $db, int $uid): array|bool {
     return $return;
     }
 
-    function connectUserByUsername(PDO $db, string $uname, string $pass) :bool|string {
+    function connectUserByUsername(PDO $db, string $uname, string $pass) :bool {
         // select user, même si le mot de passe n'est pas bon
     $sql="SELECT * FROM user WHERE username=?";
     $prepare=$db->prepare($sql);
@@ -89,14 +89,14 @@ function getOneUserById(PDO $db, int $uid): array|bool {
     if($prepare->rowCount()==1){
         $response=$prepare->fetch(PDO::FETCH_ASSOC);
         // est-ce que le mot de passe est dans la DB, crypé et correspond à l'entrée utilisateur
-        if(password_verify($pass,$response['user_pdw'])){
+        if(password_verify($pass,$response['user_pwd'])){
             // création d'une session qui renvera true
             // injection dans la variable de session du contenu de la requête
             $_SESSION=$response;
             // suppression de variables inutiles dans $_SESSION
-            unset($_SESSION['user_pdw'],$_SESSION['uniqID']);
+            unset($_SESSION['user_pwd'],$_SESSION['uniqID']);
             // id utilisée pour créé la variable de session
-            $_SESSION['userID']=session_id();
+            $_SESSION['ID']=session_id();
 
             return true;
         }else{

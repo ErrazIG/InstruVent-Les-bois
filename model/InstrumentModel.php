@@ -19,37 +19,18 @@ function trunCate (string $text): string{
 ADMIN FUNCTIONS
 */
 // Insérer un nouvel instrument, gérer les artistes et les médias associés à l'instrument
-function createInstrument(PDO $db, string $titre, string $description, int $categoryID, array $artistIDs, array $mediaURLs) {
+function createInstrument(PDO $db, string $titre, string $description, int $categoryID) {
     try {
         // Insérer l'instrument
         $sql = "INSERT INTO instrument (titre, description, category_instrument_categoryID) VALUES (?, ?, ?)";
         $prepare = $db->prepare($sql);
         $prepare->execute([$titre, $description, $categoryID]);
 
-        // Récupérer l'ID de l'instrument inséré
-        $instrumentID = $db->lastInsertId();
-
-        // Associer les artistes à l'instrument
-        $sql = "INSERT INTO instrument_has_artiste (instrument_instrumentID, artiste_artisteID) VALUES (?, ?)";
-        $prepare = $db->prepare($sql);
-        foreach ($artistIDs as $artistID) {
-            $prepare->execute([$instrumentID, $artistID]);
-        }
-
-        // Associer les médias à l'instrument
-        $sql = "INSERT INTO media (instrumentID, media_url) VALUES (?, ?)";
-        $prepare = $db->prepare($sql);
-        foreach ($mediaURLs as $mediaURL) {
-            $prepare->execute([$instrumentID, $mediaURL]);
-        }
-
-    } catch (PDOException $e) {
+        
+    } catch (Exception $e) {
         // Gérer les exceptions PDO
         echo "Erreur lors de l'insertion de l'instrument : " . $e->getMessage();
-    } catch (Exception $e) {
-        // Gérer les autres exceptions
-        echo "Erreur : " . $e->getMessage();
-    }
+    } 
 }
 
 /*
@@ -84,7 +65,7 @@ function getInstrumentWithArtists(PDO $db, $instrumentID) {
     return $prepare->fetchAll(PDO::FETCH_ASSOC);
 }
 */
-
+/*
 //Récupérer un instrument
 function getInstrumentByID(PDO $db, $instrumentID) {
     $sql = "SELECT * FROM instrument WHERE instrumentID = ?";
@@ -97,6 +78,20 @@ function getInstrumentByID(PDO $db, $instrumentID) {
         error_log("Erreur lors de la récupération de l'instrument : " . $e->getMessage());
         return false;
     }
+}
+*/
+function getInstrumentById(PDO $db, int $instrumentID): array {
+    $sql = "SELECT instrument.*, media.media_url
+            FROM instrument
+            LEFT JOIN media ON instrument.instrumentID = media.instrumentID
+            WHERE instrument.instrumentID = ? AND media.type_media = 1";
+    $prepare = $db->prepare($sql);
+    try {
+        $prepare->execute([$instrumentID]);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    return $prepare->fetch(PDO::FETCH_ASSOC);
 }
 
 //
