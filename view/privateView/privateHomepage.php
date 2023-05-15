@@ -11,54 +11,53 @@
 <body>
 <?php include_once "../includes/privateMenu.php";?>
 
-<div class="mb-4">
-    <h1 class="fw-bolder mb-1">Accueil de l'administration</a></h3>
-    <h4>Bienvenue <?=$_SESSION['username']?></h4>
-</div>
-<div class="col-lg-12">
-    <h3><?php if(isset($_GET['p'])) echo $_GET['p']; ?></h3>
-            <?php
+<div class="container mt-4">
+    <div class="mb-4">
+        <h1 class="fw-bolder mb-1">Accueil de l'administration</h3>
+        <h4>Bienvenue <?=$_SESSION['username']?></h4>
+    </div>
+    <div class="col-lg-12">
+        <h3><?php if(isset($_GET['p'])) echo $_GET['p']; ?></h3>
+        <?php
         // Pas de post
         if( sizeof($instrumentsInfos) == 0):
-                        ?>
+        ?>
         <h3>Pas encore d'article sur votre site</h3>
-                        <?php
+        <?php
         // on a des post                
         else:
-                        ?>
+        ?>
         <h3>Nous avons <?= sizeof($instrumentsInfos) ?> instrument(s)</h3>
-        <table cellpadding=10>
-            <thead>
-                <tr>
-                    <th>instrumentID</th>
-                    <th>titre</th>
-                    <th>description</th>
-                    <th>date_instrument</th>
-                    <th>visible</th>
-                    <th>username</th>
-                    <th>category_instrument_categoryID</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-            </thead><tbody>
-
-        <?php foreach($instrumentsInfos as $instrumentInfo): ?>
-        
-        <tr>
-            <td><?=$instrumentInfo['instrumentID']?></td>
-            <td><?=$instrumentInfo['titre']?></td>
-            <td><?=$instrumentInfo['description']?></td>
-            <td><?=$instrumentInfo['date_instrument']?></td>
-            <td><?=$instrumentInfo['category_instrument_categoryID']?></td>
-            <td><a href="?updatePost=<?=$instrumentInfo['instrumentID']?>">update</a></td>
-            <td><a onclick="void(0);let a=confirm('Voulez-vous vraiment supprimer \'<?=$instrumentInfo['titre']?>\' ?'); if(a){ document.location = '?deletePost=<?=$instrumentInfo['instrumentID']?>'; };" href="#">delete</a></td>
-        </tr>
-        
-        <?php endforeach; ?>
-
-        </tbody>
-        </table>
-            <?php endif; ?>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>instrumentID</th>
+                        <th>titre</th>
+                        <th>description</th>
+                        <th>date_instrument</th>
+                        <th>category_instrument_categoryID</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($instrumentsInfos as $instrumentInfo): ?>
+                    <tr>
+                        <td><?=$instrumentInfo['instrumentID']?></td>
+                        <td><?=$instrumentInfo['titre']?></td>
+                        <td><?=$instrumentInfo['description']?></td>
+                        <td><?=$instrumentInfo['date_instrument']?></td>
+                        <td><?=$instrumentInfo['category_instrument_categoryID']?></td>
+                        <td><a href="?updatePost=<?=$instrumentInfo['instrumentID']?>" class="btn btn-primary">Update</a></td>
+                        <td><a onclick="let a=confirm('Voulez-vous vraiment supprimer \'<?=$instrumentInfo['titre']?>\' ?'); if(a){ document.location = '?deletePost=<?=$instrumentInfo['instrumentID']?>'; };" href="#" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php endif; ?>
     </div>
+</div>
 </body>
 </html>

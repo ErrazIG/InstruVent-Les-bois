@@ -5,6 +5,7 @@
 
 $allCateg = getAllCategoryMenu($connectPDO);
 $instrumentsInfos = getAllInstrumentsWithArtistsAndMedia($connectPDO);
+
 //var_dump($instrumentsInfos);
 
 if (isset($_GET['disconnect'])) {
@@ -16,21 +17,19 @@ if (isset($_GET['disconnect'])) {
     }  
 }
 
-if (isset($_GET['p']) && $_GET['p'] === "Update"){
+if (isset($_GET['updatePost']) && ctype_digit($_GET['updatePost'])){
 // Récupérer l'instrument à modifier
-$instrumentID = $_GET['instrumentID'];
-$instrument = getInstrumentWithArtistsAndMedia($db, $instrumentID);
-
-// Récupérer toutes les catégories
-$categories = getAllCategories($db);
+$instrumentID = $_GET['updatePost'];
+$instru = getInstrumentById($connectPDO,$instrumentID);
     require_once "../view/privateView/privateUpdate.php";
+    if(isset($_POST['instrumentID'], $_POST['category_instrument_categoryID'], $_POST['titre'], $_POST['description']));
+        $updateinstru = updateInstrument($connectPDO, $_POST['instrumentID'], $_POST['category_instrument_categoryID'], $_POST['titre'], $_POST['description']);
 
 }elseif (isset($_GET['p']) && $_GET['p'] === "Create"){
     if(isset($_POST['titre'],$_POST['description'],$_POST['category_instrument_categoryID'])) {
         $newinstrument = createInstrument($connectPDO,$_POST['titre'], $_POST['description'], $_POST['category_instrument_categoryID']);
         echo 'Instrument ajouté avec succès';
     }
-
 
     require_once "../view/privateView/privateCreate.php";
     
