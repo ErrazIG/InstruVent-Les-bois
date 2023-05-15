@@ -205,7 +205,7 @@
     text-decoration: none;
   }
   
-  body.open .menu > a {
+  body.open, .menu > a {
     animation: appear 0.3s both;
   }
   
@@ -470,7 +470,7 @@
   height: auto;
 
   display: grid;
-  grid-template-columns: repeat(2,auto);
+  grid-template-columns: repeat(3,auto);
   justify-content: center;
   align-self: flex-end;
   gap: 0% 10%;
