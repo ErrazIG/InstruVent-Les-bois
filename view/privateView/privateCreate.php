@@ -25,16 +25,6 @@
     <?php endforeach; ?>
     <input class="input-create btn-create" type="submit" value="Envoyer">
 
-
-    <form action="" method="POST">
-        <input type="text" name="titre" placeholder="titre">
-        <input type="text" name="description" placeholder="description">
-        <select name="category_instrument_categoryID" id="">
-<?php foreach($allCateg as $item): ?>
-    <option value="<?= $item['categoryID']?>"><?= $item['cat_instrument']?></option>
-    <?php endforeach; ?>
-    <input type="submit" value="Envoyer">
-
         </select>
     </form>
     <?php //var_dump($_POST); ?>
