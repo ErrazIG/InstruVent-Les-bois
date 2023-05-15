@@ -812,6 +812,7 @@
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  margin-top: 4%;
 }
 
 .audio-btn {
@@ -864,4 +865,70 @@
   transform: translateY(-50%, -50%);
   white-space: nowrap;
   font-size: 15px;
+}
+
+
+/** Public Fiche Instrument **/
+
+.contFicheImg {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr ;
+  grid-template-rows: 500px;
+  column-gap: 3vw;
+  width: 80%;
+  height: 20%;
+  margin: auto;
+  padding: 2%;
+}
+
+.contImg2 {
+
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 3%;
+padding: 5%;
+
+}
+
+.imgFicheInst2 {
+
+  width: 25%;
+
+}
+
+
+.pFicheInst {
+
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+
+}
+
+
+.h2Fiche {
+  text-align: center;
+  padding: 1%;
+}
+
+.h3Fiche {
+
+  margin-left: 30vw;
+}
+
+.imgFiche1 {
+  height: 80%;
+
+}
+
+
+.line2 {
+  position: relative;
+  width: 60%;
+  height: 1px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: black;
+  margin: 2%;
 }

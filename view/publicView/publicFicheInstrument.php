@@ -16,16 +16,21 @@
     <div class="body-content">
     <?php include_once '../includes/publicMenu.php';?>
 
-    <h2><?php echo $instrument['titre']; ?></h2>
-    <p><?php echo $instrument['description']; ?></p>
+    <h1 class="h2Fiche"><?php echo $instrument['titre']; ?></h1>
 
-    <img src="<?php echo $image[0]['media_url']; ?>" alt=""> <!-- AJOUTER UNE IMAGE -->
-    <img src="<?php echo $image[1]['media_url']; ?>" alt=""> 
-    <img src="<?php echo $image[2]['media_url']; ?>" alt=""> 
-    <?php var_dump($image) ?>
+    <div class="contFicheImg">
 
+        
+        <p><?php echo $instrument['description']; ?></p>
+    
+        <img class="imgFiche1" src="<?php echo $image[0]['media_url']; ?>" alt=""> <!-- AJOUTER UNE IMAGE -->
+    
+    </div>
+
+    <div class="line2"></div>
+    
     <div>
-        <h3>Ecoutez</h3>
+        <h2 class="h3Fiche">Ecoutez :</h2>
         <div class="player">
           <img id="ficheImg" src="assets/blg.jpg" style="transform: rotate(0deg);" alt="">
   
@@ -35,10 +40,12 @@
         <div class="audio-btn" onclick="play()"></div>
     </div>
 
+    
+
 
         <?php if (!empty($artist)): ?>
-            <p>Cet instrument est joué par <?php echo $artist['nom']; ?> voici un lien vers sa <a href="<?php echo $artist['wiki_url']; ?>">Page Wikipédia</a> </p>
-            <p>Voici un lien vers son <a href="<?php echo $artist['website_url']; ?>">Site web personnel</a></p>
+            <p class="pFicheInst">Cet instrument est joué par <?php echo $artist['nom']; ?> voici un lien vers sa <a href="<?php echo $artist['wiki_url']; ?>">Page Wikipédia</a> </p>
+            <p class="pFicheInst">Voici un lien vers son <a href="<?php echo $artist['website_url']; ?>">Site web personnel</a></p>
         <?php endif; ?>
     </div>
 
@@ -49,7 +56,12 @@
                 </video>
                 <img width="320" height="240" src="<?php echo $image['media_url'];  ?>" alt="Image de l'instrument">
             <?php endif; ?>
-        </div>
+    </div>
+
+    <div class="contImg2">
+        <img class="imgFicheInst2"   src="<?php echo $image[1]['media_url']; ?>" alt=""> 
+        <img class="imgFicheInst2"src="<?php echo $image[2]['media_url']; ?>" alt=""> 
+    </div>
 
     <?php include_once '../includes/publicFooter.php';?>
 </div>      
