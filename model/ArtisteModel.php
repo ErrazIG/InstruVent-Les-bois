@@ -33,7 +33,7 @@ function createArtiste(PDO $db, string $nom, string $wiki_url, string $website_u
 }
 
 // function readArtisteByID name urlwiki urlsiteweb where id
-function getOneArtisteByID(PDO $db, int $uid): array|bool {
+function getOneArtisteByID(PDO $db, int $uid): array {
 
     $sql="SELECT nom, wiki_url, website_url FROM artiste WHERE artisteID=?";
     $prepare=$db->prepare($sql);
