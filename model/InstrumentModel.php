@@ -33,18 +33,26 @@ function createInstrument(PDO $db, string $titre, string $description, int $cate
     } 
 }
 
-/*
+
 // Mettre à jour un instrument, sa CatégorieID, son Titre, sa Description, 
-function updateInstrument(PDO $db, $instrumentID, $categoryID, $titre, $description) {
-    $sql = "UPDATE instrument SET categoryID = ?, titre = ?, description = ? WHERE instrumentID = ?";
+function updateInstrument(PDO $db, $instrumentID, $categoryID, $titre, $description){
+    $sql = "UPDATE instrument SET category_instrument_categoryID = :categoryID, titre = :titre, description = :description WHERE instrumentID = :instrumentID";
     $prepare = $db->prepare($sql);
     try {
-        return $prepare->execute([$categoryID, $titre, $description, $instrumentID]);
+        $prepare->bindParam(':instrumentID', $instrumentID, PDO::PARAM_INT);
+        $prepare->bindParam(':categoryID', $categoryID, PDO::PARAM_INT);
+        $prepare->bindParam(':titre', $titre, PDO::PARAM_STR);
+        $prepare->bindParam(':description', $description, PDO::PARAM_STR);
+        $prepare->execute();
+        return true;
     } catch (Exception $e) {
         error_log("Erreur lors de la mise à jour de l'instrument : " . $e->getMessage());
         return false;
     }
 }
+
+
+/*
 // Associer un ou des artistes à un instrument
 function associateArtistsToInstrument(PDO $db, $instrumentID, array $artistIDs) {
     $sql = "INSERT INTO instrument_has_artiste (instrument_instrumentID, artiste_artisteID) VALUES (?, ?)";
@@ -94,10 +102,8 @@ function getInstrumentById(PDO $db, int $instrumentID): array {
     return $prepare->fetch(PDO::FETCH_ASSOC);
 }
 
-//
-
 //Récupérer tout les isntruments avec Artistes et Médias
-function getAllInstrumentsWithArtistsAndMedia(PDO $db) {
+function getAllInstrumentsWithArtistsAndMedia(PDO $db){
     $sql = "SELECT i.*, a.*, m.*
             FROM instrument i
             LEFT JOIN instrument_has_artiste iha ON i.instrumentID = iha.instrument_instrumentID
@@ -151,6 +157,7 @@ function getAllInstrumentsWithArtistsAndMedia(PDO $db) {
 
     return $instruments;
 }
+
 // Supprimer un instrument 
 function deleteInstrument(PDO $db, $instrumentID) {
     $sql = "DELETE FROM instrument WHERE instrumentID = ?";
